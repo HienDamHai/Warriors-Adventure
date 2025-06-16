@@ -2376,8 +2376,8 @@ GameObject:
   - component: {fileID: 1759475004}
   - component: {fileID: 1759475008}
   - component: {fileID: 1759475007}
-  - component: {fileID: 1759475006}
   - component: {fileID: 1759475009}
+  - component: {fileID: 1759475010}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2455,24 +2455,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &1759475006
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1759475003}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Animation: {fileID: 0}
-  m_Animations:
-  - {fileID: 7400000, guid: 02f8ff92b853b4c46a1c61ce3616c16f, type: 2}
-  - {fileID: 7400000, guid: 81d75522a58bb0a4b91caaffd5940594, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_UpdateMode: 0
-  m_CullingType: 0
 --- !u!61 &1759475007
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2577,7 +2559,7 @@ MonoBehaviour:
       m_Flags: 4
     - m_Name: up
       m_Id: e6986c15-b1e2-4771-b907-d424aa6a595f
-      m_Path: 
+      m_Path: <Keyboard>/upArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -2585,7 +2567,7 @@ MonoBehaviour:
       m_Flags: 8
     - m_Name: down
       m_Id: 7f6f2ed1-f3ed-41fe-b391-f6a9988f6edb
-      m_Path: 
+      m_Path: <Keyboard>/downArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -2593,7 +2575,7 @@ MonoBehaviour:
       m_Flags: 8
     - m_Name: left
       m_Id: 23df3bf9-d0b6-4bf3-9742-b53b7c14f70d
-      m_Path: 
+      m_Path: <Keyboard>/leftArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -2601,13 +2583,35 @@ MonoBehaviour:
       m_Flags: 8
     - m_Name: right
       m_Id: d119b941-bec0-4656-b143-feaf8a519400
-      m_Path: 
+      m_Path: <Keyboard>/rightArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
       m_Action: Move
       m_Flags: 8
     m_Flags: 0
+--- !u!95 &1759475010
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759475003}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3d22e0291756dd749aa6958b57ec981f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1991654583
 GameObject:
   m_ObjectHideFlags: 0
