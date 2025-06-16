@@ -35,6 +35,30 @@ public class PlayerHealth : MonoBehaviour
         {
             // Die(); // Gọi hàm Die nếu máu bằng 0
         }
+
+        if (amount < 0 && !IsInvicible()) // Nếu bị thương và không đang trong thời gian bất tử
+        {
+            invicibleTime = 2f; // Đặt lại thời gian bất tử
+            // Có thể thêm hiệu ứng hình ảnh hoặc âm thanh khi bị thương
+            Debug.Log("Player took damage! Current Health: " + currentHealth);
+        }
+    }
+
+    bool IsInvicible() {
+        if (invicibleTime > 0)
+        {
+            invicibleTime -= Time.deltaTime; // Giảm thời gian bất tử
+        }
+        return invicibleTime > 0; // Trả về true nếu vẫn đang trong thời gian bất tử
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Enemy")
+        {
+            // Gọi hàm ChangeHealth với giá trị âm để giảm máu khi va chạm với kẻ thù
+            ChangeHealth(-10f); // Giảm 10 máu khi va chạm với kẻ thù
+        }
     }
 
 }
