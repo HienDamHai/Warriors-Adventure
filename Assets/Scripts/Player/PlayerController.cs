@@ -50,4 +50,13 @@ public class PlayerController : MonoBehaviour
             spriteRenderer.flipX = !spriteRenderer.flipX; // Lật hình ảnh của nhân vật
         }
     }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            PlayerHealth.Instance.ChangeHealth(-10f); // Giảm máu khi va chạm với kẻ thù
+            Debug.Log("Player collided with enemy! Current Health: " + PlayerHealth.Instance.currentHealth);
+        }
+    }
 }

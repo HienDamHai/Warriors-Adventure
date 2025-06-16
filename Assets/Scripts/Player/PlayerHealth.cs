@@ -3,13 +3,16 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
 
+    private static PlayerHealth _instance; // Biến tĩnh để lưu Instance duy nhất của PlayerHealth
+
     public float maxHealth = 100f; // Máu tối đa của nhân vật
-    public float currentHealth; // Máu hiện tại của nhân vật
-    public float invicibleTime = 2f; // Thời gian bất tử sau khi bị thương
-    public static PlayerHealth Instance; // Biến tĩnh để truy cập từ các lớp khác
-    public PlayerHealth()
+    public float currentHealth = 100f; // Máu hiện tại của nhân vật
+    private float invicibleTime = 0;
+    public float invicibleCooldown = 2f; // Thời gian bất tử sau khi bị thương
+    public static PlayerHealth Instance;
+    void Awake()
     {
-        Instance = this; // Gán Instance cho đối tượng hiện tại
+        Instance = this;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -21,44 +24,38 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        InvicibleUpdate(); // Cập nhật thời gian bất tử
     }
 
     public void ChangeHealth(float amount)
     {
-        if (amount < 0 && invicibleTime > 0) return; // Nếu bị thương và đang trong thời gian bất tử, không thay đổi máu
-
-        currentHealth += amount; // Thay đổi máu hiện tại
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); // Đảm bảo máu không vượt quá giới hạn
-
-        if (currentHealth <= 0)
+        if (amount < 0 && !IsInvicible())
         {
-            // Die(); // Gọi hàm Die nếu máu bằng 0
-        }
-
-        if (amount < 0 && !IsInvicible()) // Nếu bị thương và không đang trong thời gian bất tử
-        {
-            invicibleTime = 2f; // Đặt lại thời gian bất tử
+            currentHealth += amount; // Thay đổi máu hiện tại
+            currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); // Đảm bảo máu không vượt quá giới hạn
+            invicibleTime = invicibleCooldown; // Đặt lại thời gian bất tử
             // Có thể thêm hiệu ứng hình ảnh hoặc âm thanh khi bị thương
             Debug.Log("Player took damage! Current Health: " + currentHealth);
         }
+        else if (amount > 0)
+        {
+            currentHealth += amount; // Tăng máu hiện tại
+            currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); // Đảm bảo máu không vượt quá giới hạn
+            Debug.Log("Player healed! Current Health: " + currentHealth);
+        }
     }
 
-    bool IsInvicible() {
-        if (invicibleTime > 0)
-        {
-            invicibleTime -= Time.deltaTime; // Giảm thời gian bất tử
-        }
+    bool IsInvicible()
+    {
         return invicibleTime > 0; // Trả về true nếu vẫn đang trong thời gian bất tử
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void InvicibleUpdate()
     {
-        if (collision.collider.tag == "Enemy")
+        if (invicibleTime > 0)
         {
-            // Gọi hàm ChangeHealth với giá trị âm để giảm máu khi va chạm với kẻ thù
-            ChangeHealth(-10f); // Giảm 10 máu khi va chạm với kẻ thù
+            invicibleTime -= Time.deltaTime; // Giảm thời gian bất tử
+            Debug.Log("Invicible Time: " + invicibleTime);
         }
     }
-
 }
