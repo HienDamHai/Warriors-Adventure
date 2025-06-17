@@ -55,6 +55,7 @@ public class PlayerHealth : MonoBehaviour
         if (invicibleTime > 0)
         {
             invicibleTime -= Time.deltaTime; // Giảm thời gian bất tử
+            Debug.Log("Health: " + currentHealth);
             Debug.Log("Invicible Time: " + invicibleTime);
         }
     }
