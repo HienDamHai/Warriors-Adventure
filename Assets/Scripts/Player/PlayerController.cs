@@ -51,12 +51,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            PlayerHealth.Instance.ChangeHealth(-10f); // Giảm máu khi va chạm với kẻ thù
-            Debug.Log("Player collided with enemy! Current Health: " + PlayerHealth.Instance.currentHealth);
-        }
-    }
+    // void OnCollisionEnter2D(Collision2D collision)
+    // {
+    //     if (collision.gameObject.CompareTag("Enemy"))
+    //     {
+    //         PlayerHealth.Instance.ChangeHealth(-10f); // Giảm máu khi va chạm với kẻ thù
+    //         Debug.Log("Player collided with enemy! Current Health: " + PlayerHealth.Instance.currentHealth);
+    //     }
+    // }
 }
