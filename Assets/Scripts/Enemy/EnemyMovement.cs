@@ -34,17 +34,17 @@ public class EnemyMovement : MonoBehaviour
 
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            isChasingPlayer = true; // Bắt đầu đuổi theo người chơi khi va chạm
-        }
+    // void OnTriggerEnter2D(Collider2D collision)
+    // {
+    //     if (collision.gameObject.CompareTag("Player"))
+    //     {
+    //         isChasingPlayer = true; // Bắt đầu đuổi theo người chơi khi va chạm
+    //     }
 
-    }
+    // }
 
-    void OnTriggerExit2D(Collider2D collision)
-    {
-        isChasingPlayer = false; // Dừng đuổi theo người chơi khi rời khỏi vùng va chạm
-    }
+    // void OnTriggerExit2D(Collider2D collision)
+    // {
+    //     isChasingPlayer = false; // Dừng đuổi theo người chơi khi rời khỏi vùng va chạm
+    // }
 }

@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f; // Tốc độ di chuyển của nhân vật
     public InputAction moveAction;
+    public InputAction attackAction; // Thêm InputAction cho tấn công
     public Animator animator;
 
 
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveDirection = Vector2.down; // Hướng di chuyển của nhân vật
     private SpriteRenderer spriteRenderer;
     private bool isFacingRight = true; // Biến để theo dõi hướng của nhân vật
+    private PlayerCombat playerCombat; // Biến để lưu PlayerCombat
 
 
 
@@ -22,9 +24,11 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         moveAction.Enable(); // Kích hoạt InputAction
+        attackAction.Enable(); // Kích hoạt InputAction cho tấn công
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        playerCombat = PlayerCombat.Instance; // Lấy Instance của PlayerCombat
     }
 
     // Update is called once per frame
@@ -40,6 +44,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 position = (Vector2)rb.position + move * moveSpeed * Time.deltaTime;
         rb.MovePosition(position);
+        OnAttack();
     }
 
     void Flip()
@@ -48,6 +53,14 @@ public class PlayerController : MonoBehaviour
         {
             isFacingRight = !isFacingRight; // Đảo ngược hướng
             spriteRenderer.flipX = !spriteRenderer.flipX; // Lật hình ảnh của nhân vật
+        }
+    }
+
+    void OnAttack()
+    {   
+        if (playerCombat != null && attackAction.IsPressed())
+        {
+            playerCombat.Attack(); // Gọi hàm tấn công từ PlayerCombat
         }
     }
 
