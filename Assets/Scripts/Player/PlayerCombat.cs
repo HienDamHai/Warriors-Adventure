@@ -5,6 +5,8 @@ public class PlayerCombat : MonoBehaviour
     public Transform attackPoint; // Điểm tấn công, nơi sẽ phát ra đòn tấn công
     public float weaponRange; // Phạm vi tấn công của vũ khí
     public LayerMask enemyLayer; // Lớp đối tượng kẻ thù để phát hiện va chạm
+    public float knockbackForce = 10f; // Lực đẩy khi tấn công kẻ thù
+    public int damage = 1;
 
 
     public static PlayerCombat Instance; // Biến tĩnh để lưu Instance duy nhất của PlayerCombat
@@ -50,6 +52,11 @@ public class PlayerCombat : MonoBehaviour
 
     public void DealDamage()
     {
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, 0.5f); // Lấy tất cả kẻ thù trong phạm vi tấn công
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.position, weaponRange, enemyLayer); // Lấy tất cả kẻ thù trong phạm vi tấn công
+        if (enemies.Length > 0)
+        {
+            enemies[0].GetComponent<EnemyKnockback>().Knockback(transform, knockbackForce); // Gọi phương thức Knockback trên kẻ thù đầu tiên
+        }
+
     }
 }

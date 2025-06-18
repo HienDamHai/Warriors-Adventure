@@ -35,13 +35,13 @@ public class PlayerHealth : MonoBehaviour
             currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); // Đảm bảo máu không vượt quá giới hạn
             invicibleTime = invicibleCooldown; // Đặt lại thời gian bất tử
             // Có thể thêm hiệu ứng hình ảnh hoặc âm thanh khi bị thương
-            Debug.Log("Player took damage! Current Health: " + currentHealth);
+            // Debug.Log("Player took damage! Current Health: " + currentHealth);
         }
         else if (amount > 0)
         {
             currentHealth += amount; // Tăng máu hiện tại
             currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); // Đảm bảo máu không vượt quá giới hạn
-            Debug.Log("Player healed! Current Health: " + currentHealth);
+            // Debug.Log("Player healed! Current Health: " + currentHealth);
         }
     }
 

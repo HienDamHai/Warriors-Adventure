@@ -25,6 +25,7 @@ public class EnemyKnockback : MonoBehaviour
     {
         Vector2 direction = (transform.position - playerTransform.position).normalized; // Calculate the direction away from the player
         rb.linearVelocity = direction * knockbackForce; // Apply the knockback force to the Rigidbody2D
+        Debug.Log("Knockback applied to " + gameObject.name + " with force: " + knockbackForce);
     }
     
 
