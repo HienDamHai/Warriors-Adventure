@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -7,6 +8,8 @@ public class PlayerHealth : MonoBehaviour
 
     public float maxHealth = 100f; // Máu tối đa của nhân vật
     public float currentHealth = 100f; // Máu hiện tại của nhân vật
+    public TMP_Text textHealth; // TextMeshPro để hiển thị máu
+
     private float invicibleTime = 0;
     public float invicibleCooldown = 2f; // Thời gian bất tử sau khi bị thương
     public static PlayerHealth Instance;
@@ -19,6 +22,14 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth; // Khởi tạo máu hiện tại bằng máu tối đa
+        if (textHealth != null)
+        {
+            textHealth.text = $"HP: {currentHealth}/{maxHealth}"; // Hiển thị máu ban đầu
+        }
+        else
+        {
+            Debug.LogWarning("TextMeshPro textHealth is not assigned in the inspector.");
+        }
     }
 
     // Update is called once per frame
@@ -34,6 +45,7 @@ public class PlayerHealth : MonoBehaviour
             currentHealth += amount; // Thay đổi máu hiện tại
             currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); // Đảm bảo máu không vượt quá giới hạn
             invicibleTime = invicibleCooldown; // Đặt lại thời gian bất tử
+            textHealth.text = $"HP: {currentHealth}/{maxHealth}"; // Cập nhật hiển thị máu
             // Có thể thêm hiệu ứng hình ảnh hoặc âm thanh khi bị thương
             // Debug.Log("Player took damage! Current Health: " + currentHealth);
         }
