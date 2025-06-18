@@ -2,9 +2,17 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
+    public Transform attackPoint; // Điểm tấn công, nơi sẽ phát ra đòn tấn công
+    public float weaponRange; // Phạm vi tấn công của vũ khí
+    public LayerMask enemyLayer; // Lớp đối tượng kẻ thù để phát hiện va chạm
+
 
     public static PlayerCombat Instance; // Biến tĩnh để lưu Instance duy nhất của PlayerCombat
     public Animator animator; // Animator để điều khiển các hoạt ảnh tấn công
+    public float attackCooldown = 1f; // Thời gian hồi chiêu giữa các đòn tấn công
+
+
+    private float timer = 0f; // Biến để theo dõi thời gian hồi chiêu
 
     void Awake()
     {
@@ -23,16 +31,25 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (timer > 0)
+        {
+            timer -= Time.deltaTime; // Giảm thời gian hồi chiêu
+        }
     }
 
     public void Attack()
     {
+        if (timer > 0) return; // Nếu còn thời gian hồi chiêu, không thực hiện tấn công
         animator.SetBool("IsAttacking", true); // Kích hoạt hoạt ảnh tấn công
     }
 
     public void EndAttack()
     {
         animator.SetBool("IsAttacking", false); // Kết thúc hoạt ảnh tấn công
+    }
+
+    public void DealDamage()
+    {
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, 0.5f); // Lấy tất cả kẻ thù trong phạm vi tấn công
     }
 }
