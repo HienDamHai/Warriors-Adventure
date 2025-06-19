@@ -3561,8 +3561,9 @@ MonoBehaviour:
     m_Bits: 0
   knockbackForce: 10
   damage: 1
-  animator: {fileID: 0}
+  animator: {fileID: 1759475010}
   attackCooldown: 1
+  timer: 0
 --- !u!1 &1991654583
 GameObject:
   m_ObjectHideFlags: 0

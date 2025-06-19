@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
@@ -57,10 +58,14 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void OnAttack()
-    {   
+    {
         if (playerCombat != null && attackAction.IsPressed())
         {
-            playerCombat.Attack(); // Gọi hàm tấn công từ PlayerCombat
+            if (playerCombat.timer <= 0)
+            {
+                playerCombat.Attack(); // Gọi hàm tấn công từ PlayerCombat
+            }
+
         }
     }
 

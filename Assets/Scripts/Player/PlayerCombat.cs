@@ -13,8 +13,8 @@ public class PlayerCombat : MonoBehaviour
     public Animator animator; // Animator để điều khiển các hoạt ảnh tấn công
     public float attackCooldown = 1f; // Thời gian hồi chiêu giữa các đòn tấn công
 
-
-    private float timer = 0f; // Biến để theo dõi thời gian hồi chiêu
+    [HideInInspector]
+    public float timer = 0f; // Biến để theo dõi thời gian hồi chiêu
 
     void Awake()
     {
@@ -28,6 +28,8 @@ public class PlayerCombat : MonoBehaviour
         {
             animator = GetComponent<Animator>(); // Lấy Animator từ GameObject nếu chưa được gán
         }
+        
+        timer = attackCooldown; // Khởi tạo thời gian hồi chiêu
     }
 
     // Update is called once per frame
@@ -48,6 +50,7 @@ public class PlayerCombat : MonoBehaviour
     public void EndAttack()
     {
         animator.SetBool("IsAttacking", false); // Kết thúc hoạt ảnh tấn công
+        timer = attackCooldown; // Đặt lại thời gian hồi chiêu
     }
 
     public void DealDamage()
