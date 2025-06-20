@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Torch_Combat : MonoBehaviour
+public class Enemy_Combat : MonoBehaviour
 {
     [SerializeField] public int damage = 1;
     public Transform attackPoint;
@@ -13,9 +13,8 @@ public class Torch_Combat : MonoBehaviour
         Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, weaponRange, playerLayer);
         if(hits.Length > 0)
         {
-            //hits[0].GetComponent<PlayerHealth>().ChangeHealth(-damage);
-            //hits[0].GetComponent<Player_Demo_Movement>().Knockback(transform, knockbackForce);
-            Debug.Log("trung roi");
+            hits[0].GetComponent<PlayerHealth>().ChangeHealth(-damage);
+            // hits[0].GetComponent<PlayerMovement>().Knockback(transform, knockbackForce);
         }
     }
 }

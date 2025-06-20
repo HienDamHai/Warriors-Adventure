@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Torch_Health : MonoBehaviour
+public class Enemy_Health : MonoBehaviour
 {
     public int currentHealth;
     public int maxHealth;
