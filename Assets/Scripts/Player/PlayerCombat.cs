@@ -7,6 +7,8 @@ public class PlayerCombat : MonoBehaviour
     public LayerMask enemyLayer; // Lớp đối tượng kẻ thù để phát hiện va chạm
     public float knockbackForce = 10f; // Lực đẩy khi tấn công kẻ thù
     public int damage = 1;
+    public float knockbackTime = 0.5f; // Thời gian đẩy lùi kẻ thù sau khi bị tấn công
+    public float stunTime = 0.5f; // Thời gian choáng sau khi bị tấn công
 
 
     public static PlayerCombat Instance; // Biến tĩnh để lưu Instance duy nhất của PlayerCombat
@@ -58,7 +60,8 @@ public class PlayerCombat : MonoBehaviour
         Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.position, weaponRange, enemyLayer); // Lấy tất cả kẻ thù trong phạm vi tấn công
         if (enemies.Length > 0)
         {
-            // enemies[0].GetComponent<EnemyKnockback>().Knockback(transform, knockbackForce); // Gọi phương thức Knockback trên kẻ thù đầu tiên
+            enemies[0].GetComponent<Enemy_Health>().ChangeHealth(-damage); // Gọi phương thức TakeDamage trên kẻ thù đầu tiên
+            enemies[0].GetComponent<Enemy_Knockback>().Knockback(transform, knockbackForce, knockbackTime, stunTime); // Gọi phương thức Knockback trên kẻ thù đầu tiên
         }
 
     }
