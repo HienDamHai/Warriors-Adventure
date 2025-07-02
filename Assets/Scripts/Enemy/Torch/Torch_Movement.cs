@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.XR;
 
-public class Enemy_Movement : MonoBehaviour
+public class Torch_Movement : MonoBehaviour
 {
     public float speed = 5;
     public float attackRange = 1;

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
@@ -18,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isFacingRight = true; // Biến để theo dõi hướng của nhân vật
     private PlayerCombat playerCombat; // Biến để lưu PlayerCombat
 
-
+    private bool isKnockback;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -38,13 +39,15 @@ public class PlayerMovement : MonoBehaviour
         move = moveAction.ReadValue<Vector2>(); // Đọc giá trị di chuyển từ InputAction
         animator.SetBool("IsMoving", move != Vector2.zero); // Kích hoạt animation di chuyển
         Flip(); // Gọi hàm Flip để kiểm tra và thay đổi hướng của nhân vật
-
     }
 
     public void FixedUpdate()
     {
-        Vector2 position = (Vector2)rb.position + move * moveSpeed * Time.deltaTime;
-        rb.MovePosition(position);
+        if (!isKnockback)
+        {
+            Vector2 position = (Vector2)rb.position + move * moveSpeed * Time.deltaTime;
+            rb.MovePosition(position);
+        }
         OnAttack();
     }
 
@@ -77,4 +80,19 @@ public class PlayerMovement : MonoBehaviour
     //         Debug.Log("Player collided with enemy! Current Health: " + PlayerHealth.Instance.currentHealth);
     //     }
     // }
+
+    public void Knockback(Transform enemy, float force, float stunTime)
+    {
+        isKnockback = true;
+        Vector2 direction = (transform.position - enemy.position).normalized;
+        rb.linearVelocity = direction * force;
+        StartCoroutine(KnockbackCounter(stunTime));
+    }
+
+    IEnumerator KnockbackCounter(float stunTime)
+    {
+        yield return new WaitForSeconds(stunTime);
+        rb.linearVelocity = Vector2.zero;
+        isKnockback = false;
+    }
 }

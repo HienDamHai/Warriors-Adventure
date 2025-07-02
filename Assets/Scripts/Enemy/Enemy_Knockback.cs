@@ -3,11 +3,11 @@ using UnityEngine;
 public class Enemy_Knockback : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private Enemy_Movement enemy_Movement;
+    private Torch_Movement enemy_Movement;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        enemy_Movement = GetComponent<Enemy_Movement>();
+        enemy_Movement = GetComponent<Torch_Movement>();
     }
     public void Knockback(Transform playerTransform, float knockbackForce, float knockbackTime, float stunTime)
     {
