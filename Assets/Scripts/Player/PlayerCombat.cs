@@ -30,7 +30,7 @@ public class PlayerCombat : MonoBehaviour
         {
             animator = GetComponent<Animator>(); // Lấy Animator từ GameObject nếu chưa được gán
         }
-        
+
         timer = attackCooldown; // Khởi tạo thời gian hồi chiêu
     }
 
@@ -61,7 +61,15 @@ public class PlayerCombat : MonoBehaviour
         if (enemies.Length > 0)
         {
             enemies[0].GetComponent<Enemy_Health>().ChangeHealth(-damage); // Gọi phương thức TakeDamage trên kẻ thù đầu tiên
-            enemies[0].GetComponent<Enemy_Knockback>().Knockback(transform, knockbackForce, knockbackTime, stunTime); // Gọi phương thức Knockback trên kẻ thù đầu tiên
+
+            if (enemies[0].GetComponent<Torch_Knockback>() != null)
+            {
+                enemies[0].GetComponent<Torch_Knockback>().Knockback(transform, knockbackForce, knockbackTime, stunTime); // Gọi phương thức Knockback trên kẻ thù đầu tiên
+            }
+            else
+            {
+                enemies[0].GetComponent<Lancer_Knockback>().Knockback(transform, knockbackForce, knockbackTime, stunTime); // Gọi phương thức Knockback trên kẻ thù đầu tiên
+            }
         }
 
     }
