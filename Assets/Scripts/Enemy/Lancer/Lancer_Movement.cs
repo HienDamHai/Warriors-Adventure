@@ -113,7 +113,7 @@ public class Lancer_Movement : MonoBehaviour
             ChangeState(EnemyState.Idle);
     }
 
-    void ChangeState(EnemyState newState)
+    public void ChangeState(EnemyState newState)
     {
         animator.SetBool("isIdle", false);
         animator.SetBool("isChasing", false);
@@ -186,11 +186,4 @@ public class Lancer_Movement : MonoBehaviour
         }
     }
 
-    enum EnemyState
-    {
-        Idle,
-        Chasing,
-        Attacking,
-        Knockback
-    }
 }

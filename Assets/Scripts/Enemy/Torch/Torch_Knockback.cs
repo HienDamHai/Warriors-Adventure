@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
-public class Enemy_Knockback : MonoBehaviour
+public class Torch_Knockback : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Torch_Movement enemy_Movement;
