@@ -3,12 +3,7 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
     public Transform attackPoint; // Điểm tấn công, nơi sẽ phát ra đòn tấn công
-    public float weaponRange; // Phạm vi tấn công của vũ khí
     public LayerMask enemyLayer; // Lớp đối tượng kẻ thù để phát hiện va chạm
-    public float knockbackForce = 10f; // Lực đẩy khi tấn công kẻ thù
-    public int damage = 1;
-    public float knockbackTime = 0.5f; // Thời gian đẩy lùi kẻ thù sau khi bị tấn công
-    public float stunTime = 0.5f; // Thời gian choáng sau khi bị tấn công
 
 
     public static PlayerCombat Instance; // Biến tĩnh để lưu Instance duy nhất của PlayerCombat
@@ -31,7 +26,7 @@ public class PlayerCombat : MonoBehaviour
             animator = GetComponent<Animator>(); // Lấy Animator từ GameObject nếu chưa được gán
         }
 
-        timer = attackCooldown; // Khởi tạo thời gian hồi chiêu
+        timer = GetRealCooldown();
     }
 
     // Update is called once per frame
@@ -52,25 +47,29 @@ public class PlayerCombat : MonoBehaviour
     public void EndAttack()
     {
         animator.SetBool("IsAttacking", false); // Kết thúc hoạt ảnh tấn công
-        timer = attackCooldown; // Đặt lại thời gian hồi chiêu
+        timer = GetRealCooldown();
     }
 
     public void DealDamage()
     {
-        Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.position, weaponRange, enemyLayer); // Lấy tất cả kẻ thù trong phạm vi tấn công
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.position, StatsManager.Instance.weaponRange, enemyLayer); // Lấy tất cả kẻ thù trong phạm vi tấn công
         if (enemies.Length > 0)
         {
-            enemies[0].GetComponent<Enemy_Health>().ChangeHealth(-damage); // Gọi phương thức TakeDamage trên kẻ thù đầu tiên
+            enemies[0].GetComponent<Enemy_Health>().ChangeHealth(-StatsManager.Instance.damage); // Gọi phương thức TakeDamage trên kẻ thù đầu tiên
 
             if (enemies[0].GetComponent<Torch_Knockback>() != null)
             {
-                enemies[0].GetComponent<Torch_Knockback>().Knockback(transform, knockbackForce, knockbackTime, stunTime); // Gọi phương thức Knockback trên kẻ thù đầu tiên
+                enemies[0].GetComponent<Torch_Knockback>().Knockback(transform, StatsManager.Instance.knockbackForce, StatsManager.Instance.knockbackTime, StatsManager.Instance.stunTime); // Gọi phương thức Knockback trên kẻ thù đầu tiên
             }
             else
             {
-                enemies[0].GetComponent<Lancer_Knockback>().Knockback(transform, knockbackForce, knockbackTime, stunTime); // Gọi phương thức Knockback trên kẻ thù đầu tiên
+                enemies[0].GetComponent<Lancer_Knockback>().Knockback(transform, StatsManager.Instance.knockbackForce, StatsManager.Instance.knockbackTime, StatsManager.Instance.stunTime); // Gọi phương thức Knockback trên kẻ thù đầu tiên
             }
         }
-
+    }
+    private float GetRealCooldown()
+    {
+        float speed = StatsManager.Instance.attackSpeed;
+        return attackCooldown / Mathf.Max(speed, 0.1f);
     }
 }

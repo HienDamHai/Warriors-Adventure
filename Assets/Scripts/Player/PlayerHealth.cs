@@ -6,8 +6,6 @@ public class PlayerHealth : MonoBehaviour
 
     private static PlayerHealth _instance; // Biến tĩnh để lưu Instance duy nhất của PlayerHealth
 
-    public float maxHealth = 100f; // Máu tối đa của nhân vật
-    public float currentHealth = 100f; // Máu hiện tại của nhân vật
     public TMP_Text textHealth; // TextMeshPro để hiển thị máu
 
     private float invicibleTime = 0;
@@ -21,10 +19,10 @@ public class PlayerHealth : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        currentHealth = maxHealth; // Khởi tạo máu hiện tại bằng máu tối đa
+        StatsManager.Instance.currentHealth = StatsManager.Instance.maxHealth; // Khởi tạo máu hiện tại bằng máu tối đa
         if (textHealth != null)
         {
-            textHealth.text = $"HP: {currentHealth}/{maxHealth}"; // Hiển thị máu ban đầu
+            textHealth.text = $"HP: {StatsManager.Instance.currentHealth}/{StatsManager.Instance.maxHealth}"; // Hiển thị máu ban đầu
         }
         else
         {
@@ -38,21 +36,21 @@ public class PlayerHealth : MonoBehaviour
         InvicibleUpdate(); // Cập nhật thời gian bất tử
     }
 
-    public void ChangeHealth(float amount)
+    public void ChangeHealth(int amount)
     {
         if (amount < 0 && !IsInvicible())
         {
-            currentHealth += amount; // Thay đổi máu hiện tại
-            currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); // Đảm bảo máu không vượt quá giới hạn
+            StatsManager.Instance.currentHealth += amount; // Thay đổi máu hiện tại
+            StatsManager.Instance.currentHealth = Mathf.Clamp(StatsManager.Instance.currentHealth, 0, StatsManager.Instance.maxHealth); // Đảm bảo máu không vượt quá giới hạn
             invicibleTime = invicibleCooldown; // Đặt lại thời gian bất tử
-            textHealth.text = $"HP: {currentHealth}/{maxHealth}"; // Cập nhật hiển thị máu
+            textHealth.text = $"HP: {StatsManager.Instance.currentHealth}/{StatsManager.Instance.maxHealth}"; // Cập nhật hiển thị máu
             // Có thể thêm hiệu ứng hình ảnh hoặc âm thanh khi bị thương
             // Debug.Log("Player took damage! Current Health: " + currentHealth);
         }
         else if (amount > 0)
         {
-            currentHealth += amount; // Tăng máu hiện tại
-            currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); // Đảm bảo máu không vượt quá giới hạn
+            StatsManager.Instance.currentHealth += amount; // Tăng máu hiện tại
+            StatsManager.Instance.currentHealth = Mathf.Clamp(StatsManager.Instance.currentHealth, 0, StatsManager.Instance.maxHealth); // Đảm bảo máu không vượt quá giới hạn
             // Debug.Log("Player healed! Current Health: " + currentHealth);
         }
     }
@@ -67,7 +65,7 @@ public class PlayerHealth : MonoBehaviour
         if (invicibleTime > 0)
         {
             invicibleTime -= Time.deltaTime; // Giảm thời gian bất tử
-            Debug.Log("Health: " + currentHealth);
+            Debug.Log("Health: " + StatsManager.Instance.currentHealth);
             Debug.Log("Invicible Time: " + invicibleTime);
         }
     }

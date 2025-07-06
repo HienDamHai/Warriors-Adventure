@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f; // Tốc độ di chuyển của nhân vật
     public InputAction moveAction;
     public InputAction attackAction; // Thêm InputAction cho tấn công
     public Animator animator;
@@ -45,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isKnockback)
         {
-            Vector2 position = (Vector2)rb.position + move * moveSpeed * Time.deltaTime;
+            Vector2 position = (Vector2)rb.position + move * StatsManager.Instance.speed * Time.deltaTime;
             rb.MovePosition(position);
         }
         OnAttack();
