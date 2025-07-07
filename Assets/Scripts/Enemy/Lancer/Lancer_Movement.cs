@@ -17,6 +17,7 @@ public class Lancer_Movement : MonoBehaviour
     public Transform player;
     private Animator animator;
 
+    public TutorialMenuController tutorialMenuController;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -124,7 +125,10 @@ public class Lancer_Movement : MonoBehaviour
         if (newState == EnemyState.Idle)
             animator.SetBool("isIdle", true);
         else if (newState == EnemyState.Chasing)
+        {
+            tutorialMenuController.SetText("EnemyChase", "Lancer is chasing you! Avoid its attacks and find a way to defeat it.");
             animator.SetBool("isChasing", true);
+        }
         else if (newState == EnemyState.Attacking)
             animator.SetBool("isAttacking", true);
     }

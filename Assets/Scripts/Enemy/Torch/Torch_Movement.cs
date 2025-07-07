@@ -18,6 +18,8 @@ public class Torch_Movement : MonoBehaviour
     public Transform player;
     private Animator animator;
 
+    public TutorialMenuController tutorialMenuController;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -102,7 +104,10 @@ public class Torch_Movement : MonoBehaviour
         if (enemyState == EnemyState.Idle)
             animator.SetBool("isIdle", true);
         else if (enemyState == EnemyState.Chasing)
+        {
+            tutorialMenuController.SetText("EnemyChase", "The torch is trying to attack you, press Enter to attack.");
             animator.SetBool("isChasing", true);
+        }
         else if (enemyState == EnemyState.Attacking)
             animator.SetBool("isAttacking", true);
     }

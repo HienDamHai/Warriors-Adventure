@@ -9,8 +9,6 @@ public class PlayerMovement : MonoBehaviour
     public InputAction attackAction; // Thêm InputAction cho tấn công
     public Animator animator;
 
-
-
     private Rigidbody2D rb;
     private Vector2 move;
     private Vector2 moveDirection = Vector2.down; // Hướng di chuyển của nhân vật
@@ -19,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
     private PlayerCombat playerCombat; // Biến để lưu PlayerCombat
 
     private bool isKnockback;
-
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

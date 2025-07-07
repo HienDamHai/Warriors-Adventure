@@ -6,7 +6,7 @@ public class PlayerHealth : MonoBehaviour
 
     private static PlayerHealth _instance; // Biến tĩnh để lưu Instance duy nhất của PlayerHealth
 
-    public TMP_Text textHealth; // TextMeshPro để hiển thị máu
+    public ProgressBar health;
 
     private float invicibleTime = 0;
     public float invicibleCooldown = 2f; // Thời gian bất tử sau khi bị thương
@@ -20,9 +20,9 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         StatsManager.Instance.currentHealth = StatsManager.Instance.maxHealth; // Khởi tạo máu hiện tại bằng máu tối đa
-        if (textHealth != null)
+        if (health != null)
         {
-            textHealth.text = $"HP: {StatsManager.Instance.currentHealth}/{StatsManager.Instance.maxHealth}"; // Hiển thị máu ban đầu
+            health.BarValue = StatsManager.Instance.currentHealth;
         }
         else
         {
@@ -43,7 +43,7 @@ public class PlayerHealth : MonoBehaviour
             StatsManager.Instance.currentHealth += amount; // Thay đổi máu hiện tại
             StatsManager.Instance.currentHealth = Mathf.Clamp(StatsManager.Instance.currentHealth, 0, StatsManager.Instance.maxHealth); // Đảm bảo máu không vượt quá giới hạn
             invicibleTime = invicibleCooldown; // Đặt lại thời gian bất tử
-            textHealth.text = $"HP: {StatsManager.Instance.currentHealth}/{StatsManager.Instance.maxHealth}"; // Cập nhật hiển thị máu
+            health.BarValue = StatsManager.Instance.currentHealth; // Cập nhật hiển thị máu
             // Có thể thêm hiệu ứng hình ảnh hoặc âm thanh khi bị thương
             // Debug.Log("Player took damage! Current Health: " + currentHealth);
         }
