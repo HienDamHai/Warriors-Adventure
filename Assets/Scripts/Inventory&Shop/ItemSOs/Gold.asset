@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a10889b080641747b3f4610c1d9c983, type: 3}
+  m_Name: Gold
+  m_EditorClassIdentifier: 
+  itemName: Gold
+  itemDescription: This is an meat
+  icon: {fileID: -7942359355602504142, guid: 2563f95cca3cc1a4491af0ddb675383f, type: 3}
+  isGold: 1
+  health: 0
+  currentHealth: 0
+  speed: 0
+  damage: 0
+  duration: 0
