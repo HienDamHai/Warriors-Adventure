@@ -27,6 +27,7 @@ public class StatsUI : MonoBehaviour
         Time.timeScale = 0;
         UpdateAllStats();
         statsCanvas.alpha = 1;
+        statsCanvas.blocksRaycasts = false;
         statsOpen = true;
     }
 
@@ -34,6 +35,7 @@ public class StatsUI : MonoBehaviour
     {
         Time.timeScale = 1;
         statsCanvas.alpha = 0;
+        statsCanvas.blocksRaycasts = true;
         statsOpen = false;
     }
 
