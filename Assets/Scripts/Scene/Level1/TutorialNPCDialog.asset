@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f0f02de81de9654c89142f3518721bb, type: 3}
+  m_Name: TutorialNPCDialog
+  m_EditorClassIdentifier: 
+  lines:
+  - actor: {fileID: 11400000, guid: fe1cb29b1c3c0994dbe27212280f5a21, type: 2}
+    text: Hey there. Seem like you just got here
+  - actor: {fileID: 11400000, guid: 9f253d681e3591b43918cf1bc5d7c525, type: 2}
+    text: Yeah. Got any problem with that?
+  - actor: {fileID: 11400000, guid: fe1cb29b1c3c0994dbe27212280f5a21, type: 2}
+    text: Hmph. See the magical "scroll" above? Use that to guide through the map
+  choices:
+  - choiceText: Alright...
+    nextDialog: {fileID: 0}

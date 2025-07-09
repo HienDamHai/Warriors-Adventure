@@ -47,6 +47,7 @@ public class SkillTreeManager : MonoBehaviour
 
     private void CheckAvailablePoints(SkillSlot slot)
     {
+        Debug.Log($"Checking available points for {slot.name}. Current points: {availablePoints}");
         if (availablePoints > 0)
         {
             slot.TryUpgradeSkill();
