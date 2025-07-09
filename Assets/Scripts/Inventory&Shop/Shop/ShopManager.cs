@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ShopManager : MonoBehaviour
 {
+    public Component shopCanvas;
 
     [SerializeField]
     private ShopSlot[] shopSlots;
@@ -11,9 +13,12 @@ public class ShopManager : MonoBehaviour
     [SerializeField]
     private InvetoryManager inventoryManager;
 
-    public void Start()
-    {
+    public InputAction interactAction;
 
+    private void Awake()
+    {
+        interactAction.Enable();
+        shopCanvas.gameObject.SetActive(false);
     }
 
     public void PopulateShopItems(List<ShopItems> shopItems)

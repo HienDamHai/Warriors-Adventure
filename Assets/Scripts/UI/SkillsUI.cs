@@ -1,31 +1,38 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SkillsUI : MonoBehaviour
 {
-    public CanvasGroup skillsCanvas;
+    public Component skillsCanvas;
     public bool IsOpen => skillsOpen;
 
     private bool skillsOpen = false;
 
-    private void Update()
+    public InputAction toggleSkillsAction;
+
+    private void Awake()
     {
-        if (Input.GetButtonDown("ToggleSkills"))//nhan phim m
+        if (skillsCanvas == null)
         {
-            UIManager.Instance.ToggleSkills();
+            Debug.LogError("Skills Canvas is not assigned in the SkillsUI script.");
+            return;
         }
+        skillsCanvas.gameObject.SetActive(false);
+        toggleSkillsAction.Enable();
+        toggleSkillsAction.performed += ctx => UIManager.Instance.ToggleSkills();
     }
 
     public void Open()
     {
         Time.timeScale = 0;
-        skillsCanvas.alpha = 1;
+        skillsCanvas.gameObject.SetActive(true);
         skillsOpen = true;
     }
 
     public void Close()
     {
         Time.timeScale = 1;
-        skillsCanvas.alpha = 0;
+        skillsCanvas.gameObject.SetActive(false);
         skillsOpen = false;
     }
 }

@@ -1,41 +1,46 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class StatsUI : MonoBehaviour
 {
     public GameObject[] statsSlots;
-    public CanvasGroup statsCanvas;
+    public Component statsCanvas;
     public bool IsOpen => statsOpen;
 
     private bool statsOpen = false;
+
+    public InputAction toggleStatsAction;
+
+    private void Awake()
+    {
+        if (statsCanvas == null)
+        {
+            Debug.LogError("Stats Canvas is not assigned in the StatsUI script.");
+            return;
+        }
+        statsCanvas.gameObject.SetActive(false);
+        toggleStatsAction.Enable();
+        toggleStatsAction.performed += ctx => UIManager.Instance.ToggleStats();
+    }
 
     private void Start()
     {
         UpdateAllStats();
     }
 
-    private void Update()
-    {
-        if (Input.GetButtonDown("ToggleStats"))//nhan phim n
-        {
-            UIManager.Instance.ToggleStats();
-        }
-    }
-
     public void Open()
     {
         Time.timeScale = 0;
         UpdateAllStats();
-        statsCanvas.alpha = 1;
-        statsCanvas.blocksRaycasts = false;
+        statsCanvas.gameObject.SetActive(true);
         statsOpen = true;
     }
 
     public void Close()
     {
         Time.timeScale = 1;
-        statsCanvas.alpha = 0;
-        statsCanvas.blocksRaycasts = true;
+        statsCanvas.gameObject.SetActive(false);
         statsOpen = false;
     }
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ShopKeeper : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class ShopKeeper : MonoBehaviour
     public static ShopKeeper currentShopKeeper;
 
     public Animator animator;
-    public CanvasGroup shopCanvasGroup;
+    public Component shopCanvasGroup;
     public ShopManager shopManager;
 
     [SerializeField]
@@ -23,40 +24,35 @@ public class ShopKeeper : MonoBehaviour
 
     public static event Action<ShopManager, bool> OnShopStateChanged;
 
-
     private bool playerInRange;
     private bool isShopOpen;
 
-    void Update()
+    private void Awake()
+    {
+        shopManager.interactAction.performed += ctx => UpdateInteraction();
+    }
+
+    private void UpdateInteraction()
     {
         if (playerInRange)
         {
-            if (Input.GetButtonDown("Interact"))
+            if (!isShopOpen)
             {
-                if (!isShopOpen)
-                {
-                    Time.timeScale = 0;
-                    isShopOpen = true;
-                    currentShopKeeper = this; // Set the current shopkeeper
-                    OnShopStateChanged?.Invoke(shopManager, true);
-                    shopCanvasGroup.alpha = 1;
-                    shopCanvasGroup.blocksRaycasts = true;
-                    shopCanvasGroup.interactable = true;
-                    OpenItemShop(); // Default to item shop on open
-                }
-                 else
-                {
-                    Time.timeScale = 1;
-                    isShopOpen = false;
-                    currentShopKeeper = null; // Clear the current shopkeeper
-                    OnShopStateChanged?.Invoke(shopManager, false);
-                    shopCanvasGroup.alpha = 0;
-                    shopCanvasGroup.blocksRaycasts = false;
-                    shopCanvasGroup.interactable = false;
-                }
+                Time.timeScale = 0;
+                isShopOpen = true;
+                currentShopKeeper = this; // Set the current shopkeeper
+                OnShopStateChanged?.Invoke(shopManager, true);
+                shopCanvasGroup.gameObject.SetActive(true);
+                OpenItemShop(); // Default to item shop on open
             }
-
-
+             else
+            {
+                Time.timeScale = 1;
+                isShopOpen = false;
+                currentShopKeeper = null; // Clear the current shopkeeper
+                OnShopStateChanged?.Invoke(shopManager, false);
+                shopCanvasGroup.gameObject.SetActive(false);
+            }
         }
     }
 
