@@ -14,11 +14,6 @@ public class StatsUI : MonoBehaviour
 
     private void Awake()
     {
-        if (statsCanvas == null)
-        {
-            Debug.LogError("Stats Canvas is not assigned in the StatsUI script.");
-            return;
-        }
         statsCanvas.gameObject.SetActive(false);
         toggleStatsAction.Enable();
         toggleStatsAction.performed += ctx => UIManager.Instance.ToggleStats();

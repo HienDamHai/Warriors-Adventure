@@ -12,11 +12,6 @@ public class SkillsUI : MonoBehaviour
 
     private void Awake()
     {
-        if (skillsCanvas == null)
-        {
-            Debug.LogError("Skills Canvas is not assigned in the SkillsUI script.");
-            return;
-        }
         skillsCanvas.gameObject.SetActive(false);
         toggleSkillsAction.Enable();
         toggleSkillsAction.performed += ctx => UIManager.Instance.ToggleSkills();
