@@ -17,7 +17,7 @@ public class DialogManager : MonoBehaviour
     public TMP_Text dialogText;
     public Button[] choiceButtons;
 
-    public InputAction advanceAction;
+    private InputAction advanceAction;
 
     private NPCDialog currentDialog;
     public bool isDialogActive = false;
@@ -52,7 +52,7 @@ public class DialogManager : MonoBehaviour
             button.gameObject.SetActive(false); // Hide all choice buttons initially
         }
         
-        advanceAction.Enable();
+        advanceAction = InputSystem.actions.FindAction("AdvanceDialog");
         advanceActionHandler = ctx => AdvanceDialog();
         advanceAction.performed += advanceActionHandler;
         

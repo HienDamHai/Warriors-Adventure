@@ -5,13 +5,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public InputAction moveAction;
-    public InputAction attackAction; // Thêm InputAction cho tấn công
+    private InputAction moveAction;
+    private InputAction attackAction; // Thêm InputAction cho tấn công
     public Animator animator;
 
     private Rigidbody2D rb;
     private Vector2 move;
-    private Vector2 moveDirection = Vector2.down; // Hướng di chuyển của nhân vật
     private SpriteRenderer spriteRenderer;
     private bool isFacingRight = true; // Biến để theo dõi hướng của nhân vật
     private PlayerCombat playerCombat; // Biến để lưu PlayerCombat
@@ -21,8 +20,8 @@ public class PlayerMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        moveAction.Enable(); // Kích hoạt InputAction
-        attackAction.Enable(); // Kích hoạt InputAction cho tấn công
+        moveAction = InputSystem.actions.FindAction("Move");
+        attackAction = InputSystem.actions.FindAction("Attack");
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -41,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isKnockback)
         {
-            Vector2 position = (Vector2)rb.position + move * StatsManager.Instance.speed * Time.deltaTime;
+            Vector2 position = (Vector2)rb.position + StatsManager.Instance.speed * Time.deltaTime * move;
             rb.MovePosition(position);
         }
         OnAttack();

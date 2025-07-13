@@ -13,11 +13,8 @@ public class ShopManager : MonoBehaviour
     [SerializeField]
     private InvetoryManager inventoryManager;
 
-    public InputAction interactAction;
-
     private void Awake()
     {
-        interactAction.Enable();
         shopCanvas.gameObject.SetActive(false);
     }
 

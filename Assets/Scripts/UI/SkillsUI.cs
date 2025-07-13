@@ -8,12 +8,12 @@ public class SkillsUI : MonoBehaviour
 
     private bool skillsOpen = false;
 
-    public InputAction toggleSkillsAction;
+    private InputAction toggleSkillsAction;
 
     private void Awake()
     {
         skillsCanvas.gameObject.SetActive(false);
-        toggleSkillsAction.Enable();
+        toggleSkillsAction = InputSystem.actions.FindAction("ToggleSkills");
         toggleSkillsAction.performed += ctx => UIManager.Instance.ToggleSkills();
     }
 
