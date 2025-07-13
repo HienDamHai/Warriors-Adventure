@@ -4,8 +4,6 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
 
-    private static PlayerHealth _instance; // Biến tĩnh để lưu Instance duy nhất của PlayerHealth
-
     public ProgressBar health;
 
     private float invicibleTime = 0;

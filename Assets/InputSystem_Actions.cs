@@ -149,7 +149,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""name"": ""Previous"",
                     ""type"": ""Button"",
                     ""id"": ""2776c80d-3c14-4091-8c56-d04ced07a2b0"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -168,6 +168,42 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""type"": ""Button"",
                     ""id"": ""641cd816-40e6-41b4-8c3d-04687c349290"",
                     ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleSkills"",
+                    ""type"": ""Button"",
+                    ""id"": ""6bec91ff-a471-4cfc-8253-099d85510f8c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleStats"",
+                    ""type"": ""Button"",
+                    ""id"": ""8cc6e30a-d7f5-4f1b-8002-5dcd1ab5a3c0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleShop"",
+                    ""type"": ""Button"",
+                    ""id"": ""b6699a88-cf0f-45e7-ae79-ee768454421a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AdvanceDialog"",
+                    ""type"": ""Button"",
+                    ""id"": ""38992184-62e1-4e06-af3e-591535f5acbf"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -556,6 +592,50 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Crouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c5d72e94-aa6a-4480-9525-b00e58611327"",
+                    ""path"": ""<Keyboard>/m"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleSkills"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""45c70b11-e471-4a36-86fd-4a4be8e3b7bc"",
+                    ""path"": ""<Keyboard>/n"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleStats"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""98f2d678-8b38-40bd-80b0-c523053e96b6"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AdvanceDialog"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fbb77c8d-4776-4132-b786-627be139d2d6"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleShop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1152,6 +1232,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Player_Previous = m_Player.FindAction("Previous", throwIfNotFound: true);
         m_Player_Next = m_Player.FindAction("Next", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
+        m_Player_ToggleSkills = m_Player.FindAction("ToggleSkills", throwIfNotFound: true);
+        m_Player_ToggleStats = m_Player.FindAction("ToggleStats", throwIfNotFound: true);
+        m_Player_ToggleShop = m_Player.FindAction("ToggleShop", throwIfNotFound: true);
+        m_Player_AdvanceDialog = m_Player.FindAction("AdvanceDialog", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1254,6 +1338,10 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Previous;
     private readonly InputAction m_Player_Next;
     private readonly InputAction m_Player_Sprint;
+    private readonly InputAction m_Player_ToggleSkills;
+    private readonly InputAction m_Player_ToggleStats;
+    private readonly InputAction m_Player_ToggleShop;
+    private readonly InputAction m_Player_AdvanceDialog;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1301,6 +1389,22 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Sprint".
         /// </summary>
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/ToggleSkills".
+        /// </summary>
+        public InputAction @ToggleSkills => m_Wrapper.m_Player_ToggleSkills;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/ToggleStats".
+        /// </summary>
+        public InputAction @ToggleStats => m_Wrapper.m_Player_ToggleStats;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/ToggleShop".
+        /// </summary>
+        public InputAction @ToggleShop => m_Wrapper.m_Player_ToggleShop;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/AdvanceDialog".
+        /// </summary>
+        public InputAction @AdvanceDialog => m_Wrapper.m_Player_AdvanceDialog;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1354,6 +1458,18 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Sprint.started += instance.OnSprint;
             @Sprint.performed += instance.OnSprint;
             @Sprint.canceled += instance.OnSprint;
+            @ToggleSkills.started += instance.OnToggleSkills;
+            @ToggleSkills.performed += instance.OnToggleSkills;
+            @ToggleSkills.canceled += instance.OnToggleSkills;
+            @ToggleStats.started += instance.OnToggleStats;
+            @ToggleStats.performed += instance.OnToggleStats;
+            @ToggleStats.canceled += instance.OnToggleStats;
+            @ToggleShop.started += instance.OnToggleShop;
+            @ToggleShop.performed += instance.OnToggleShop;
+            @ToggleShop.canceled += instance.OnToggleShop;
+            @AdvanceDialog.started += instance.OnAdvanceDialog;
+            @AdvanceDialog.performed += instance.OnAdvanceDialog;
+            @AdvanceDialog.canceled += instance.OnAdvanceDialog;
         }
 
         /// <summary>
@@ -1392,6 +1508,18 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @Sprint.started -= instance.OnSprint;
             @Sprint.performed -= instance.OnSprint;
             @Sprint.canceled -= instance.OnSprint;
+            @ToggleSkills.started -= instance.OnToggleSkills;
+            @ToggleSkills.performed -= instance.OnToggleSkills;
+            @ToggleSkills.canceled -= instance.OnToggleSkills;
+            @ToggleStats.started -= instance.OnToggleStats;
+            @ToggleStats.performed -= instance.OnToggleStats;
+            @ToggleStats.canceled -= instance.OnToggleStats;
+            @ToggleShop.started -= instance.OnToggleShop;
+            @ToggleShop.performed -= instance.OnToggleShop;
+            @ToggleShop.canceled -= instance.OnToggleShop;
+            @AdvanceDialog.started -= instance.OnAdvanceDialog;
+            @AdvanceDialog.performed -= instance.OnAdvanceDialog;
+            @AdvanceDialog.canceled -= instance.OnAdvanceDialog;
         }
 
         /// <summary>
@@ -1755,6 +1883,34 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSprint(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ToggleSkills" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnToggleSkills(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ToggleStats" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnToggleStats(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ToggleShop" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnToggleShop(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "AdvanceDialog" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnAdvanceDialog(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

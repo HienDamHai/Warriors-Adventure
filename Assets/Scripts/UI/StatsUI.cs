@@ -10,12 +10,12 @@ public class StatsUI : MonoBehaviour
 
     private bool statsOpen = false;
 
-    public InputAction toggleStatsAction;
+    private InputAction toggleStatsAction;
 
     private void Awake()
     {
         statsCanvas.gameObject.SetActive(false);
-        toggleStatsAction.Enable();
+        toggleStatsAction = InputSystem.actions.FindAction("ToggleStats");
         toggleStatsAction.performed += ctx => UIManager.Instance.ToggleStats();
     }
 

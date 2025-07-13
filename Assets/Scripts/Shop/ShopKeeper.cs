@@ -26,10 +26,12 @@ public class ShopKeeper : MonoBehaviour
 
     private bool playerInRange;
     private bool isShopOpen;
+    private InputAction InteractAction { get; set; }
 
     private void Awake()
     {
-        shopManager.interactAction.performed += ctx => UpdateInteraction();
+        InteractAction = InputSystem.actions.FindAction("ToggleShop");
+        InteractAction.performed += ctx => UpdateInteraction();
     }
 
     private void UpdateInteraction()
