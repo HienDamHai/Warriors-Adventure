@@ -277,15 +277,13 @@ MonoBehaviour:
   shopManager: {fileID: 0}
   shopItems:
   - itemSO: {fileID: 11400000, guid: 16fa9eafafb54a3469e98632bec23912, type: 2}
-    price: 1
-  - itemSO: {fileID: 11400000, guid: ccd7bc85a2a1f7b4983d20875a19bf04, type: 2}
     price: 2
-  shopWeapons:
+  - itemSO: {fileID: 11400000, guid: ccd7bc85a2a1f7b4983d20875a19bf04, type: 2}
+    price: 4
   - itemSO: {fileID: 11400000, guid: 45a1e2fbcd7446d4f840cf098eaee43d, type: 2}
-    price: 2
-  shopArmour:
-  - itemSO: {fileID: 11400000, guid: ccd7bc85a2a1f7b4983d20875a19bf04, type: 2}
-    price: 2
+    price: 10
+  shopWeapons: []
+  shopArmour: []
 --- !u!1 &993114500904126762
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,7 +359,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 50
+  m_SortingOrder: 51
   m_Sprite: {fileID: -5186603844909537218, guid: e0d1e63fbe5f71e4fa6f71a2f3afa3f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
