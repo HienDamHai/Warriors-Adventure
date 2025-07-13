@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class Lancer_Movement : MonoBehaviour
 {
@@ -126,6 +126,7 @@ public class Lancer_Movement : MonoBehaviour
             animator.SetBool("isIdle", true);
         else if (newState == EnemyState.Chasing)
         {
+            if(tutorialMenuController != null)
             tutorialMenuController.SetText("EnemyChase", "Lancer is chasing you! Avoid its attacks and find a way to defeat it.");
             animator.SetBool("isChasing", true);
         }

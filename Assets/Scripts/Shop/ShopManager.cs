@@ -71,11 +71,21 @@ public class ShopManager : MonoBehaviour
             return;
         }
 
-        foreach (var slot in shopSlots)
+        // foreach (var slot in shopSlots)
+        // {
+        //     if (slot.itemSO = itemSO)
+        //     {
+        //         inventoryManager.gold += slot.price;
+        //         inventoryManager.goldText.text = inventoryManager.gold.ToString();
+        //         return;
+        //     }
+        // }
+
+        for (int i = 0; i < shopSlots.Length; i++)
         {
-            if (slot.itemSO = itemSO)
+            if (shopSlots[i].itemSO == itemSO)
             {
-                inventoryManager.gold += slot.price;
+                inventoryManager.gold += shopSlots[i].price;
                 inventoryManager.goldText.text = inventoryManager.gold.ToString();
                 return;
             }

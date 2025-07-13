@@ -105,6 +105,7 @@ public class Torch_Movement : MonoBehaviour
             animator.SetBool("isIdle", true);
         else if (enemyState == EnemyState.Chasing)
         {
+            if (tutorialMenuController != null)
             tutorialMenuController.SetText("EnemyChase", "The torch is trying to attack you, press Enter to attack.");
             animator.SetBool("isChasing", true);
         }

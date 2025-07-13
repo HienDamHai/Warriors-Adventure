@@ -69,6 +69,11 @@ public class PlayerCombat : MonoBehaviour
             {
                 enemies[0].GetComponent<ThiefKnockback>().Knockback(transform, StatsManager.Instance.knockbackForce, StatsManager.Instance.knockbackTime, StatsManager.Instance.stunTime); // Gọi phương thức Knockback trên kẻ thù đầu tiên
             }
+            else if (enemies[0].GetComponent<BringerOfDeathKnockback>() != null)
+            {
+                enemies[0].GetComponent<BringerOfDeathKnockback>().Knockback(transform, StatsManager.Instance.knockbackForce, StatsManager.Instance.knockbackTime, StatsManager.Instance.stunTime); // Gọi phương thức Knockback trên kẻ thù đầu tiên
+            }
+           
         }
     }
     private float GetRealCooldown()

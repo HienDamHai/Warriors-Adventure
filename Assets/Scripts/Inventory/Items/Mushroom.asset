@@ -16,8 +16,9 @@ MonoBehaviour:
   itemDescription: This is an mushroom
   icon: {fileID: 8793915729297761979, guid: f4ca335cb247e144db352f8c99352fa9, type: 3}
   isGold: 0
+  stackSize: 7
   maxHealth: 0
-  currentHealth: 1
+  currentHealth: 3
   speed: 0
   damage: 0
   duration: 0
