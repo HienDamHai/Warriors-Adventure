@@ -41,7 +41,7 @@ public class PlayerHealth : MonoBehaviour
             StatsManager.Instance.currentHealth += amount; // Thay đổi máu hiện tại
             StatsManager.Instance.currentHealth = Mathf.Clamp(StatsManager.Instance.currentHealth, 0, StatsManager.Instance.maxHealth); // Đảm bảo máu không vượt quá giới hạn
             invicibleTime = invicibleCooldown; // Đặt lại thời gian bất tử
-            health.BarValue = StatsManager.Instance.currentHealth; // Cập nhật hiển thị máu
+            health.BarValue = StatsManager.Instance.currentHealth;
             // Có thể thêm hiệu ứng hình ảnh hoặc âm thanh khi bị thương
             // Debug.Log("Player took damage! Current Health: " + currentHealth);
         }
@@ -49,6 +49,7 @@ public class PlayerHealth : MonoBehaviour
         {
             StatsManager.Instance.currentHealth += amount; // Tăng máu hiện tại
             StatsManager.Instance.currentHealth = Mathf.Clamp(StatsManager.Instance.currentHealth, 0, StatsManager.Instance.maxHealth); // Đảm bảo máu không vượt quá giới hạn
+            health.BarValue = StatsManager.Instance.currentHealth;
             // Debug.Log("Player healed! Current Health: " + currentHealth);
         }
     }
