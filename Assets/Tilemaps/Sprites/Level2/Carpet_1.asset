@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ChatGPT Image 15_49_27 11 thg 7, 2025_0
+  m_Name: Carpet_1
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 6076587886746055894, guid: 77ed2b60167aa8e40b611b13bd754d4a, type: 3}
+  m_Sprite: {fileID: 8047640051420506631, guid: 242b7033dea47ba4a8e0b7fe224c4e13, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
