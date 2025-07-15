@@ -6,9 +6,15 @@ public class PlayerHealth : MonoBehaviour
 
     public ProgressBar health;
 
+    public Animator animator;
+
+    private PlayerMovement playerMovement;
+
+    public int live = 3; // Số mạng của người chơi
+
     private float invicibleTime = 0;
     public float invicibleCooldown = 2f; // Thời gian bất tử sau khi bị thương
-    public static PlayerHealth Instance;
+    private static PlayerHealth Instance;
     void Awake()
     {
         Instance = this;
@@ -17,6 +23,8 @@ public class PlayerHealth : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        animator = GetComponent<Animator>();
+        playerMovement = GetComponent<PlayerMovement>();
         StatsManager.Instance.currentHealth = StatsManager.Instance.maxHealth; // Khởi tạo máu hiện tại bằng máu tối đa
         if (health != null)
         {
@@ -44,6 +52,15 @@ public class PlayerHealth : MonoBehaviour
             health.BarValue = StatsManager.Instance.currentHealth;
             // Có thể thêm hiệu ứng hình ảnh hoặc âm thanh khi bị thương
             // Debug.Log("Player took damage! Current Health: " + currentHealth);
+            if (StatsManager.Instance.currentHealth <= 0)
+            {
+                gameObject.layer = LayerMask.NameToLayer("Dead");
+                // Xử lý khi người chơi chết
+                Debug.Log("Player is dead!");
+                animator.Play("Death"); // Kích hoạt hoạt ảnh chết
+            }
+
+
         }
         else if (amount > 0)
         {
@@ -66,4 +83,29 @@ public class PlayerHealth : MonoBehaviour
             invicibleTime -= Time.deltaTime; // Giảm thời gian bất tử
         }
     }
+
+
+    public void ResetHealth()
+    {
+        if (live > 1)
+        {
+            gameObject.layer = LayerMask.NameToLayer("Player"); // Đặt layer của người chơi thành Player
+            live--; // Giảm số mạng khi máu bằng 0
+            StatsManager.Instance.currentHealth = StatsManager.Instance.maxHealth; // Đặt lại máu hiện tại về máu tối đa
+            health.BarValue = StatsManager.Instance.currentHealth; // Cập nhật thanh máu
+            invicibleTime = 0; // Đặt lại thời gian bất tử
+            animator.Play("Idle"); // Kích hoạt hoạt ảnh đứng yên 
+            var LastPosition = CheckpointManager.Instance.LastPosition;
+            playerMovement.SetMove(LastPosition);
+        }
+        else if (live == 1)
+        {
+            live--; // Giảm số mạng khi máu bằng 0
+            gameObject.layer = LayerMask.NameToLayer("Dead"); // Đặt layer của người chơi thành Dead
+            playerMovement.DisableInput();
+        }
+
+        
+    }
+
 }
