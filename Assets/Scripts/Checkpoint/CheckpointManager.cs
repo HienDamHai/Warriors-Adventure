@@ -17,4 +17,9 @@ public class CheckpointManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    void Start()
+    {
+        LastPosition = new Vector2(32.08f, -31.9f); // Initialize the last position to zero
+    }
 }

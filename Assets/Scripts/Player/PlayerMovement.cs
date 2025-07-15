@@ -90,4 +90,16 @@ public class PlayerMovement : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
         isKnockback = false;
     }
+
+    public void SetMove(Vector2 position)
+    {
+        rb.position = position; // Cập nhật giá trị di chuyển
+    }
+
+    public void DisableInput ()
+    {
+        moveAction.Disable(); // Vô hiệu hóa InputAction di chuyển
+        attackAction.Disable(); // Vô hiệu hóa InputAction tấn công
+    }
+
 }
