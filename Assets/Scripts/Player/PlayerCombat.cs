@@ -55,30 +55,51 @@ public class PlayerCombat : MonoBehaviour
         Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPoint.position, StatsManager.Instance.weaponRange, enemyLayer); // Lấy tất cả kẻ thù trong phạm vi tấn công
         if (enemies.Length > 0)
         {
-            enemies[0].GetComponent<Enemy_Health>().ChangeHealth(-StatsManager.Instance.damage); // Gọi phương thức TakeDamage trên kẻ thù đầu tiên
+            Collider2D enemy = null; 
+            //Check enemy gần nhất
+            float closestDistance = Mathf.Infinity;
+            foreach (Collider2D e in enemies)
+            {
+                float distance = Vector2.Distance(attackPoint.position, e.transform.position);
+                if (distance < closestDistance && distance < StatsManager.Instance.weaponRange) // Chỉ chọn kẻ thù trong phạm vi tấn công
+                {
+                    closestDistance = distance;
+                    enemy = e;
+                }
+            }
 
-            if (enemies[0].GetComponent<Torch_Knockback>() != null)
+            
+            if (enemy == null) return; // Nếu không có kẻ thù nào trong phạm vi tấn công, thoát khỏi phương thức
+            enemy.GetComponent<Enemy_Health>().ChangeHealth(-StatsManager.Instance.damage); // Gọi phương thức TakeDamage trên kẻ thù đầu tiên
+
+            if (enemy.GetComponent<Torch_Knockback>() != null)
             {
-                enemies[0].GetComponent<Torch_Knockback>().Knockback(transform, StatsManager.Instance.knockbackForce, StatsManager.Instance.knockbackTime, StatsManager.Instance.stunTime); // Gọi phương thức Knockback trên kẻ thù đầu tiên
+                enemy.GetComponent<Torch_Knockback>().Knockback(transform, StatsManager.Instance.knockbackForce, StatsManager.Instance.knockbackTime, StatsManager.Instance.stunTime); // Gọi phương thức Knockback trên kẻ thù đầu tiên
             }
-            else if (enemies[0].GetComponent<Lancer_Knockback>() != null)
+            else if (enemy.GetComponent<Lancer_Knockback>() != null)
             {
-                enemies[0].GetComponent<Lancer_Knockback>().Knockback(transform, StatsManager.Instance.knockbackForce, StatsManager.Instance.knockbackTime, StatsManager.Instance.stunTime); // Gọi phương thức Knockback trên kẻ thù đầu tiên
+                enemy.GetComponent<Lancer_Knockback>().Knockback(transform, StatsManager.Instance.knockbackForce, StatsManager.Instance.knockbackTime, StatsManager.Instance.stunTime); // Gọi phương thức Knockback trên kẻ thù đầu tiên
             }
-            else if (enemies[0].GetComponent<ThiefKnockback>() != null)
+            else if (enemy.GetComponent<ThiefKnockback>() != null)
             {
-                enemies[0].GetComponent<ThiefKnockback>().Knockback(transform, StatsManager.Instance.knockbackForce, StatsManager.Instance.knockbackTime, StatsManager.Instance.stunTime); // Gọi phương thức Knockback trên kẻ thù đầu tiên
+                enemy.GetComponent<ThiefKnockback>().Knockback(transform, StatsManager.Instance.knockbackForce, StatsManager.Instance.knockbackTime, StatsManager.Instance.stunTime); // Gọi phương thức Knockback trên kẻ thù đầu tiên
             }
-            else if (enemies[0].GetComponent<BringerOfDeathKnockback>() != null)
+            else if (enemy.GetComponent<BringerOfDeathKnockback>() != null)
             {
-                enemies[0].GetComponent<BringerOfDeathKnockback>().Knockback(transform, StatsManager.Instance.knockbackForce, StatsManager.Instance.knockbackTime, StatsManager.Instance.stunTime); // Gọi phương thức Knockback trên kẻ thù đầu tiên
+                enemy.GetComponent<BringerOfDeathKnockback>().Knockback(transform, StatsManager.Instance.knockbackForce, StatsManager.Instance.knockbackTime, StatsManager.Instance.stunTime); // Gọi phương thức Knockback trên kẻ thù đầu tiên
             }
-           
+
         }
     }
     private float GetRealCooldown()
     {
         float speed = StatsManager.Instance.attackSpeed;
         return attackCooldown / Mathf.Max(speed, 0.1f);
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red; // Màu sắc của Gizmos
+        Gizmos.DrawWireSphere(attackPoint.position, 1.5f); // Vẽ hình cầu xung quanh điểm tấn công
     }
 }
