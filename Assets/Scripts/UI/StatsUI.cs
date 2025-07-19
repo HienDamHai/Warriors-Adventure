@@ -44,9 +44,9 @@ public class StatsUI : MonoBehaviour
         statsSlots[0].GetComponentInChildren<TMP_Text>().text = "Damage: " + StatsManager.Instance.damage;
     }
 
-    public void UpdateSpeed()
+    public void UpdateRunSpeed()
     {
-        statsSlots[1].GetComponentInChildren<TMP_Text>().text = "Speed: " + StatsManager.Instance.speed;
+        statsSlots[1].GetComponentInChildren<TMP_Text>().text = "Run Speed: " + StatsManager.Instance.speed;
     }
 
     public void UpdateMaxHealth()
@@ -54,10 +54,16 @@ public class StatsUI : MonoBehaviour
         statsSlots[2].GetComponentInChildren<TMP_Text>().text = "Max health: " + StatsManager.Instance.maxHealth;
     }
 
+    public void UpdateAttackSpeed()
+    {
+        statsSlots[3].GetComponentInChildren<TMP_Text>().text = "Attack Speed: " + StatsManager.Instance.attackSpeed;
+    }
+
     public void UpdateAllStats()
     {
         UpdateDamage();
-        UpdateSpeed();
+        UpdateRunSpeed();
         UpdateMaxHealth();
+        UpdateAttackSpeed();
     }
 }

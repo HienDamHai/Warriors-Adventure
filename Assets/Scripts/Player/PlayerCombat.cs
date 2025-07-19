@@ -100,6 +100,6 @@ public class PlayerCombat : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red; // Màu sắc của Gizmos
-        Gizmos.DrawWireSphere(attackPoint.position, 1.5f); // Vẽ hình cầu xung quanh điểm tấn công
+        Gizmos.DrawWireSphere(attackPoint.position, 1f); // Vẽ hình cầu xung quanh điểm tấn công
     }
 }

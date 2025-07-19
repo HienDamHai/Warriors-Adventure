@@ -18,7 +18,7 @@ public class SkillManager : MonoBehaviour
         switch(skillName)
         {
             case "Max Health Boost":
-                StatsManager.Instance.UpdateMaxHealth(1);
+                StatsManager.Instance.UpdateMaxHealth(10);
                 break;
             case "Damage Boost":
                 StatsManager.Instance.UpdateDamage(1);
