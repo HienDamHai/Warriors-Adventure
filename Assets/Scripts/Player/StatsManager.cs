@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -21,6 +22,8 @@ public class StatsManager : MonoBehaviour
     public int maxHealth;
     public int currentHealth;
 
+    public event Action<int> HealthUpdatedHandler;
+    public event Action<int> MaxHealthUpdatedHandler;
 
     private void Awake()
     {
@@ -34,6 +37,8 @@ public class StatsManager : MonoBehaviour
     {
         maxHealth += amount;
         currentHealth += amount;
+        MaxHealthUpdatedHandler?.Invoke(maxHealth);
+        HealthUpdatedHandler?.Invoke(currentHealth);
         // healthText.text = "HP " + currentHealth + "/" + maxHealth;
     }
 
@@ -43,6 +48,7 @@ public class StatsManager : MonoBehaviour
         if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
+            HealthUpdatedHandler?.Invoke(currentHealth);
         }
         // healthText.text = "HP " + currentHealth + "/" + maxHealth;
     }
