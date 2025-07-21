@@ -26,7 +26,7 @@ public class UseItem : MonoBehaviour
 
         if (itemSO.exp > 0)
         {
-            ExpManager.Instance.GainExperience(itemSO.exp);
+            ExpManager.Instance.GainExperience(itemSO.exp, 0);
         }
     }
     private IEnumerator EffectTimer(ItemSO itemSO, float duration)

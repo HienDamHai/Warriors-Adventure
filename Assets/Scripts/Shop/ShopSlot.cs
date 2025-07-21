@@ -14,8 +14,8 @@ public class ShopSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField]
     public ShopManager shopManager;
 
-    [SerializeField]
-    public ShopInfo shopInfo;
+    // [SerializeField]
+    // public ShopInfo shopInfo;
 
 
     public int price;
@@ -24,7 +24,14 @@ public class ShopSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         itemSO = newItemSO;
         itemImage.sprite = itemSO.icon;
-        itemNameText.text = itemSO.itemName;
+        if (itemSO.damage != 0)
+        {
+            itemNameText.text = "Damage: " + itemSO.damage;
+        }
+        else
+        {
+            itemNameText.text = "Healing: " + itemSO.currentHealth;
+        }
         this.price = price;
         priceText.text = price.ToString();
 
@@ -41,20 +48,20 @@ public class ShopSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             return;
         }
-        shopInfo.ShowItemInfo(itemSO);
+        // shopInfo.ShowItemInfo(itemSO);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
 
-        shopInfo.HideItemInfo();
+        // shopInfo.HideItemInfo();
     }
 
     public void OnPointerMove(PointerEventData eventData)
     {
-        if(itemSO != null)
-        {
-            shopInfo.FollowMouse();
-        }
+        // if (itemSO != null)
+        // {
+        //     shopInfo.FollowMouse();
+        // }
     }
 }
