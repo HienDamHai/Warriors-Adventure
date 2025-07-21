@@ -29,7 +29,7 @@ public class ExpManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            GainExperience(2);
+            GainExperience(2, 1);
         }
     }
 
@@ -43,9 +43,10 @@ public class ExpManager : MonoBehaviour
         Enemy_Health.OnMonsterDefeated -= GainExperience;
     }
 
-    public void GainExperience(int amount)
+    public void GainExperience(int amount, int score)
     {
         currentExp += amount;
+        ScoreManager.Instance.SetScore(ScoreManager.Instance.currentScore + score);
         while (currentExp >= expToLevel) // Hỗ trợ lên nhiều cấp liên tục
         {
             LevelUp();
