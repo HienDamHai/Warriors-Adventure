@@ -577,7 +577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
-  animator: {fileID: 0}
+  animator: {fileID: 4332836335091998118}
   live: 3
   invicibleCooldown: 1
 --- !u!114 &35683544961271098
@@ -596,6 +596,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
+  attackClip: {fileID: 8300000, guid: aa44e717e9d56534292f52b713d3ef96, type: 3}
   animator: {fileID: 4332836335091998118}
   attackCooldown: 1
   timer: 0
