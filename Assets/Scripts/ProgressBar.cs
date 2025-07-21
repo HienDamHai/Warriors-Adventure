@@ -10,20 +10,36 @@ public class ProgressBar : MonoBehaviour
 {
     public Image bar, barBackground;
     private float barValue;
+    private float maxValue = 100;
     public float BarValue
     {
         get { return barValue; }
 
         set
         {
-            value = Mathf.Clamp(value, 0, 100);
+            value = Mathf.Clamp(value, 0, maxValue);
             barValue = value;
-            UpdateValue(barValue);
-
+            UpdateValue();
         }
     }
-        
+
+    public float MaxBarValue
+    {
+        get { return maxValue; }
+
+        set
+        {
+            maxValue = value;
+            UpdateValue();
+        }
+    }
+
     private void Start()
+    {
+        UpdateValue();
+    }
+
+    void UpdateValue()
     {
         UpdateValue(barValue);
     }
@@ -31,7 +47,7 @@ public class ProgressBar : MonoBehaviour
     void UpdateValue(float val)
     {
         bar.type = Image.Type.Filled;
-        bar.fillAmount = val / 100;    
+        bar.fillAmount = val / maxValue;    
     }
 
     private void Update()

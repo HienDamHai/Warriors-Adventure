@@ -1,9 +1,9 @@
+using System;
 using TMPro;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-
     public ProgressBar health;
 
     public Animator animator;
@@ -14,10 +14,19 @@ public class PlayerHealth : MonoBehaviour
 
     private float invicibleTime = 0;
     public float invicibleCooldown = 2f; // Thời gian bất tử sau khi bị thương
-    private static PlayerHealth Instance;
-    void Awake()
+
+    public Action<int> OnHealthUpdated;
+    public Action<int> OnMaxHealthUpdated;
+
+    private void Awake()
     {
-        Instance = this;
+        OnHealthUpdated = (health) => { 
+            this.health.BarValue = health;
+        };
+        OnMaxHealthUpdated = (maxHealth) =>
+        {
+            this.health.MaxBarValue = maxHealth;
+        };
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -26,6 +35,8 @@ public class PlayerHealth : MonoBehaviour
         animator = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
         StatsManager.Instance.currentHealth = StatsManager.Instance.maxHealth; // Khởi tạo máu hiện tại bằng máu tối đa
+        StatsManager.Instance.HealthUpdatedHandler += OnHealthUpdated;
+        StatsManager.Instance.MaxHealthUpdatedHandler += OnMaxHealthUpdated;
         if (health != null)
         {
             health.BarValue = StatsManager.Instance.currentHealth;
