@@ -9,6 +9,8 @@ public class Enemy_Health : MonoBehaviour
     public int currentHealth;
     public int maxHealth;
 
+    public NPCDialog bossDeathDialog;
+
     private BossProgressBar bossProgressBar;
     private TimerUI timerUI;
 
@@ -43,6 +45,7 @@ public class Enemy_Health : MonoBehaviour
             if (gameObject.CompareTag("Boss"))
             {
                 timerUI?.PauseTimer();
+                DialogManager.Instance.StartDialog(bossDeathDialog);
                 // bossProgressBar.SetActive(false);
             }
             Destroy(gameObject);

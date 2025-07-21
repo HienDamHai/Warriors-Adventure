@@ -18,8 +18,8 @@ public class BringerOfDeathMovement : MonoBehaviour
     public Transform player;
     private Animator animator;
 
-
-    public TutorialMenuController tutorialMenuController;
+    private bool firstTimeChasing = false;
+    public NPCDialog dialog;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -106,8 +106,15 @@ public class BringerOfDeathMovement : MonoBehaviour
             animator.SetBool("isIdle", true);
         else if (enemyState == EnemyState.Chasing)
         {
-            if (tutorialMenuController != null)
-            tutorialMenuController.SetText("EnemyChase", "The torch is trying to attack you, press Enter to attack.");
+            if (!firstTimeChasing)
+            {
+                var dialogManger = DialogManager.Instance;
+                if (!dialogManger.isDialogActive)
+                {
+                    dialogManger.StartDialog(dialog);
+                    firstTimeChasing = true;
+                }
+            }
             animator.SetBool("isChasing", true);
         }
         else if (enemyState == EnemyState.Attacking)

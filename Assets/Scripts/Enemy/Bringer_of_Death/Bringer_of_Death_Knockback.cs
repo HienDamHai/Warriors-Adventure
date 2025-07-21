@@ -15,7 +15,6 @@ public class BringerOfDeathKnockback : MonoBehaviour
         StartCoroutine(StunTimer(knockbackTime, stunTime));
         Vector2 direction = (transform.position - playerTransform.position).normalized;
         rb.linearVelocity = direction * knockbackForce;
-        Debug.Log("knock");
     }
 
     IEnumerator StunTimer(float knockbackTime, float stunTime)

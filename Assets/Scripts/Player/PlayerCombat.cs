@@ -5,6 +5,8 @@ public class PlayerCombat : MonoBehaviour
     public Transform attackPoint; // Điểm tấn công, nơi sẽ phát ra đòn tấn công
     public LayerMask enemyLayer; // Lớp đối tượng kẻ thù để phát hiện va chạm
 
+    public AudioClip attackClip;
+
 
     public static PlayerCombat Instance; // Biến tĩnh để lưu Instance duy nhất của PlayerCombat
     public Animator animator; // Animator để điều khiển các hoạt ảnh tấn công
@@ -41,6 +43,7 @@ public class PlayerCombat : MonoBehaviour
     public void Attack()
     {
         if (timer > 0) return; // Nếu còn thời gian hồi chiêu, không thực hiện tấn công
+        SFXManager.Instance.PlaySFX(attackClip, transform, 1f);
         animator.SetBool("IsAttacking", true); // Kích hoạt hoạt ảnh tấn công
     }
 

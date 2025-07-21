@@ -66,7 +66,6 @@ public class BossProgressBar : MonoBehaviour
     {
         bar.type = Image.Type.Filled;
         bar.fillAmount = val / MaxHealth;    
-        Debug.Log("Updating Boss Progress Bar: " + val + " / " + MaxHealth);
     }
 
     private void Update()
