@@ -16,6 +16,10 @@ public class SFXManager : MonoBehaviour
 
     public void PlaySFX(AudioClip audioClip, Transform transform, float volume)
     {
+        if (audioClip == null)
+        {
+            return;
+        }
         var audioSource = Instantiate(sfxObject, transform.position, Quaternion.identity);
         audioSource.clip = audioClip;
         audioSource.volume = volume;

@@ -1340,6 +1340,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  chaseSFX: {fileID: 0}
   attackCooldownTimer: 2
   rb: {fileID: 34796582}
   player: {fileID: 1049205133255437820}
@@ -1744,6 +1745,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  chaseSFX: {fileID: 0}
   rb: {fileID: 50687692}
   player: {fileID: 1049205133255437820}
   tutorialMenuController: {fileID: 2925824215814146435}
@@ -13685,6 +13687,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  chaseSFX: {fileID: 0}
   rb: {fileID: 570358523}
   player: {fileID: 1049205133255437820}
   tutorialMenuController: {fileID: 2925824215814146435}
@@ -124707,6 +124710,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  chaseSFX: {fileID: 0}
   rb: {fileID: 762154850}
   player: {fileID: 1049205133255437820}
   tutorialMenuController: {fileID: 2925824215814146435}
@@ -137406,6 +137410,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  chaseSFX: {fileID: 0}
   rb: {fileID: 820839664}
   player: {fileID: 1049205133255437820}
   tutorialMenuController: {fileID: 2925824215814146435}
@@ -137717,6 +137722,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  chaseSFX: {fileID: 0}
   attackCooldownTimer: 2
   rb: {fileID: 839635468}
   player: {fileID: 1049205133255437820}
@@ -139500,6 +139506,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  chaseSFX: {fileID: 0}
   attackCooldownTimer: 2
   rb: {fileID: 1033510197}
   player: {fileID: 1049205133255437820}
@@ -139926,6 +139933,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  chaseSFX: {fileID: 0}
   attackCooldownTimer: 2
   rb: {fileID: 1045666004}
   player: {fileID: 1049205133255437820}
@@ -141040,6 +141048,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  chaseSFX: {fileID: 8300000, guid: 7e203b03dd5b2f84daca4cd88d0a06a2, type: 3}
   attackCooldownTimer: 2
   rb: {fileID: 1132005301}
   player: {fileID: 1049205133255437820}
@@ -143251,6 +143260,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  chaseSFX: {fileID: 0}
   rb: {fileID: 1451101527}
   player: {fileID: 1049205133255437820}
   tutorialMenuController: {fileID: 2925824215814146435}
@@ -143761,6 +143771,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  chaseSFX: {fileID: 8300000, guid: bd4f584a612d3634892a99b99829dbde, type: 3}
   rb: {fileID: 1507718512}
   player: {fileID: 1049205133255437820}
   tutorialMenuController: {fileID: 2925824215814146435}
@@ -144673,6 +144684,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  chaseSFX: {fileID: 0}
   attackCooldownTimer: 2
   rb: {fileID: 1543647928}
   player: {fileID: 1049205133255437820}
@@ -145243,7 +145255,7 @@ MonoBehaviour:
   attackCooldownTimer: 1
   rb: {fileID: 1631890085}
   player: {fileID: 1049205133255437820}
-  tutorialMenuController: {fileID: 0}
+  tutorialMenuController: {fileID: 2925824215814146435}
 --- !u!114 &1631890082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145276,6 +145288,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   stunTime: 0.5
+  attackSFX: {fileID: 8300000, guid: 34a82aeb7521e494aa528ba8681acb0a, type: 3}
 --- !u!70 &1631890084
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -145804,6 +145817,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  chaseSFX: {fileID: 0}
   rb: {fileID: 1659074495}
   player: {fileID: 1049205133255437820}
   tutorialMenuController: {fileID: 2925824215814146435}
@@ -180886,6 +180900,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  chaseSFX: {fileID: 0}
   rb: {fileID: 1805906184}
   player: {fileID: 1049205133255437820}
   tutorialMenuController: {fileID: 2925824215814146435}
@@ -187026,6 +187041,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  chaseSFX: {fileID: 0}
   attackCooldownTimer: 2
   rb: {fileID: 2030796095}
   player: {fileID: 1049205133255437820}
@@ -187838,6 +187854,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  chaseSFX: {fileID: 0}
   rb: {fileID: 2061249025}
   player: {fileID: 1049205133255437820}
   tutorialMenuController: {fileID: 2925824215814146435}
@@ -188717,6 +188734,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  chaseSFX: {fileID: 0}
   attackCooldownTimer: 2
   rb: {fileID: 2110249630}
   player: {fileID: 1049205133255437820}
@@ -189368,6 +189386,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
+  chaseSFX: {fileID: 0}
   attackCooldownTimer: 2
   rb: {fileID: 2124516187}
   player: {fileID: 1049205133255437820}

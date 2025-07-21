@@ -18,6 +18,7 @@ public class BringerOfDeathMovement : MonoBehaviour
     public Transform player;
     private Animator animator;
 
+
     public TutorialMenuController tutorialMenuController;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

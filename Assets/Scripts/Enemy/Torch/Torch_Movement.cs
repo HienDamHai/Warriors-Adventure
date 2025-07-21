@@ -10,6 +10,8 @@ public class Torch_Movement : MonoBehaviour
     public Transform detectionPoint;
     public LayerMask playerLayer;
 
+    public AudioClip chaseSFX;
+
     public float attackCooldownTimer;
     private int facingDirection = -1;
     private EnemyState enemyState;
@@ -106,8 +108,10 @@ public class Torch_Movement : MonoBehaviour
         else if (enemyState == EnemyState.Chasing)
         {
             if (tutorialMenuController != null)
-            tutorialMenuController.SetText("EnemyChase", "The torch is trying to attack you, press Enter to attack.");
+            tutorialMenuController.SetText("EnemyChase", "The torch is trying to attack you, left click to attack.");
             animator.SetBool("isChasing", true);
+            SFXManager.Instance.PlaySFX(chaseSFX, transform, 1f);
+            
         }
         else if (enemyState == EnemyState.Attacking)
             animator.SetBool("isAttacking", true);
