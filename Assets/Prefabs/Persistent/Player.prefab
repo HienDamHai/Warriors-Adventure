@@ -345,7 +345,6 @@ GameObject:
   - component: {fileID: 4242209339855936003}
   - component: {fileID: 2291491551332391079}
   - component: {fileID: 1347077739540184390}
-  - component: {fileID: 5873059558844373754}
   - component: {fileID: 5858094733731508157}
   - component: {fileID: 3105759710434744787}
   - component: {fileID: 6503851328644662369}
@@ -513,80 +512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1077637624efe1b44b9fa6126fbdf631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveAction:
-    m_Name: Move
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: cfb7af70-b4e2-453d-8ae2-dbc758cb5ff3
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: Move
-      m_Id: 4395e772-4580-4180-8957-ac893c9153a1
-      m_Path: 2DVector
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 4
-    - m_Name: up
-      m_Id: e6986c15-b1e2-4771-b907-d424aa6a595f
-      m_Path: <Keyboard>/upArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: down
-      m_Id: 7f6f2ed1-f3ed-41fe-b391-f6a9988f6edb
-      m_Path: <Keyboard>/downArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: left
-      m_Id: 23df3bf9-d0b6-4bf3-9742-b53b7c14f70d
-      m_Path: <Keyboard>/leftArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: right
-      m_Id: d119b941-bec0-4656-b143-feaf8a519400
-      m_Path: <Keyboard>/rightArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    m_Flags: 0
-  attackAction:
-    m_Name: Attack
-    m_Type: 1
-    m_ExpectedControlType: Button
-    m_Id: b447f2de-4233-4c25-a8c2-e5bdfd3f1e71
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 7b759410-7268-4f1d-a8d9-8581a512b846
-      m_Path: <Keyboard>/space
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Attack
-      m_Flags: 0
-    - m_Name: 
-      m_Id: 1aceb901-2d6f-497a-96d5-5c41d1b4d65c
-      m_Path: <Mouse>/leftButton
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Attack
-      m_Flags: 0
-    m_Flags: 0
   animator: {fileID: 4966915261267834850}
 --- !u!95 &4966915261267834850
 Animator:
@@ -623,6 +548,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  animator: {fileID: 0}
+  live: 3
   invicibleCooldown: 1
 --- !u!114 &3329745415312619795
 MonoBehaviour:
@@ -726,24 +653,6 @@ MonoBehaviour:
   speed: 5
   maxHealth: 100
   currentHealth: 100
---- !u!114 &5873059558844373754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7531562160838167796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 015a19a9331f9044cb377e83c55d31b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level: 0
-  currentExp: 0
-  expToLevel: 10
-  expGrowthMultiplier: 1.2
-  expSlider: {fileID: 0}
-  currentLevelText: {fileID: 0}
 --- !u!114 &5858094733731508157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -786,23 +695,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   inventoryManager: {fileID: 5858094733731508157}
-  interactAction:
-    m_Name: Interact
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 5cb47acb-394d-44af-9cad-4a8ff0aa6088
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: d13a8b1e-5d2b-4e4b-8cad-6c49b461ebe4
-      m_Path: <Keyboard>/#(K)
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Interact
-      m_Flags: 0
-    m_Flags: 0
 --- !u!114 &6503851328644662369
 MonoBehaviour:
   m_ObjectHideFlags: 0

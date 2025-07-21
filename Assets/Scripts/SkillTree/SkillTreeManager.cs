@@ -3,22 +3,35 @@ using UnityEngine;
 
 public class SkillTreeManager : MonoBehaviour
 {
+    public static SkillTreeManager Instance { get; private set; }
+
     public SkillSlot[] skillSlots;
     public TMP_Text pointsText;
-    public int availablePoints;
+    public int availablePoints = 0;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // Optional: Nếu muốn giữ khi chuyển scene
+        }
+        else
+        {
+            Destroy(gameObject); // Tránh trùng lặp khi load scene mới
+        }
+    }
 
     private void OnEnable()
     {
         SkillSlot.OnAbilityPointSpent += HandleAbilityPointsSpent;
         SkillSlot.OnSkillMaxed += HandleSkillMaxed;
-        ExpManager.OnLevelUp += UpdateAbilityPoints;
     }
 
     private void OnDisable()
     {
         SkillSlot.OnAbilityPointSpent -= HandleAbilityPointsSpent;
         SkillSlot.OnSkillMaxed -= HandleSkillMaxed;
-        ExpManager.OnLevelUp -= UpdateAbilityPoints;
     }
 
     private void Start()
@@ -42,7 +55,7 @@ public class SkillTreeManager : MonoBehaviour
             }
         }
 
-        UpdateAbilityPoints(0);
+        UpdatePointsText();
     }
 
     private void CheckAvailablePoints(SkillSlot slot)
@@ -58,7 +71,8 @@ public class SkillTreeManager : MonoBehaviour
     {
         if (availablePoints > 0)
         {
-            UpdateAbilityPoints(-1);
+            availablePoints -= 1;
+            UpdatePointsText();
         }
     }
 
@@ -68,14 +82,20 @@ public class SkillTreeManager : MonoBehaviour
         {
             if (!slot.isUnlocked && slot.CanUnlockSkill())
             {
-                slot.Unlock(); // đã được bảo vệ bằng SafeUpdateUI
+                slot.Unlock();
             }
         }
     }
 
-    public void UpdateAbilityPoints(int amount)
+    public void AddPoints(int amount)
     {
         availablePoints += amount;
-        pointsText.text = "Points " + availablePoints;
+        Debug.Log($"[SkillTreeManager] Gained {amount} point(s). Total: {availablePoints}");
+        UpdatePointsText();
+    }
+
+    private void UpdatePointsText()
+    {
+        pointsText.text = "Points: " + availablePoints;
     }
 }

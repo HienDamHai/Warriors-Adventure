@@ -24,7 +24,10 @@ public class UseItem : MonoBehaviour
             StartCoroutine(EffectTimer(itemSO, itemSO.duration));
         }
 
-
+        if (itemSO.exp > 0)
+        {
+            ExpManager.Instance.GainExperience(itemSO.exp);
+        }
     }
     private IEnumerator EffectTimer(ItemSO itemSO, float duration)
     {

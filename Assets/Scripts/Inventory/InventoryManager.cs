@@ -22,7 +22,7 @@ public class InvetoryManager : MonoBehaviour
 
     public void UseItem(InventorySlot slot)
     {
-        if (slot.itemSO != null && slot.quantity >= 0)
+        if (slot.itemSO != null && slot.quantity >= 0 && slot.itemSO.hasKey != true)
         {
             useItem.ApplyItemEffect(slot.itemSO);
 
@@ -114,5 +114,17 @@ public class InvetoryManager : MonoBehaviour
     {
         Loot loot = Instantiate(lootPrefab, player.position, Quaternion.identity).GetComponent<Loot>();
         loot.Initialize(itemSO, quantity);
+    }
+
+    public bool HasItem(string itemName)
+    {
+        foreach (var slot in itemSlots)
+        {
+            if (slot.itemSO != null && slot.itemSO.itemName == itemName && slot.quantity > 0)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
