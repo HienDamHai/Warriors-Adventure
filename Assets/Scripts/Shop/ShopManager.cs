@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class ShopManager : MonoBehaviour
 {
+    public static ShopManager Instance;
+
     public Component shopCanvas;
 
     [SerializeField]
@@ -15,6 +17,10 @@ public class ShopManager : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
         shopCanvas.gameObject.SetActive(false);
     }
 

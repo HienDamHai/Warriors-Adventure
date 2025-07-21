@@ -2,12 +2,14 @@ using UnityEngine;
 
 public class BringerofDeathCombat : MonoBehaviour
 {
-    [SerializeField] public int damage = 20;
+    public int damage = 20;
     public Transform attackPoint;
     public float weaponRange;
     public float knockbackForce;
     public LayerMask playerLayer;
     public float stunTime;
+    public AudioClip attackSFX;
+
 
     public void Attack()
     {
@@ -17,5 +19,6 @@ public class BringerofDeathCombat : MonoBehaviour
             hits[0].GetComponent<PlayerHealth>().ChangeHealth(-damage);
             hits[0].GetComponent<PlayerMovement>().Knockback(transform, knockbackForce, stunTime);
         }
+        SFXManager.Instance.PlaySFX(attackSFX, transform, 1f);
     }
 }

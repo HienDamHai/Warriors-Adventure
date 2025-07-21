@@ -9,6 +9,8 @@ public class Lancer_Movement : MonoBehaviour
     public Transform detectionPoint;
     public LayerMask playerLayer;
 
+    public AudioClip chaseSFX;
+
     private float attackCooldownTimer;
     private int facingDirection = 1;
     private EnemyState enemyState;
@@ -129,6 +131,7 @@ public class Lancer_Movement : MonoBehaviour
             if(tutorialMenuController != null)
             tutorialMenuController.SetText("EnemyChase", "Lancer is chasing you! Avoid its attacks and find a way to defeat it.");
             animator.SetBool("isChasing", true);
+            SFXManager.Instance.PlaySFX(chaseSFX, transform, 1f);
         }
         else if (newState == EnemyState.Attacking)
             animator.SetBool("isAttacking", true);

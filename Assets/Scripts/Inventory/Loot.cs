@@ -12,6 +12,8 @@ public class Loot : MonoBehaviour
     public int quantity = 1;
     public static event Action<ItemSO, int> OnItemLooted;
 
+    public AudioClip pickupSFX;
+
     void OnValidate()
     {
         if (itemSO == null) return;
@@ -21,6 +23,7 @@ public class Loot : MonoBehaviour
     {
         if (other.CompareTag("Player") && canBePickedUp == true)
         {
+            SFXManager.Instance.PlaySFX(pickupSFX, transform, 1f);
             anim.Play("LootPickup");
             OnItemLooted?.Invoke(itemSO, quantity);
             Destroy(gameObject, 0.5f); // Destroy after animation plays

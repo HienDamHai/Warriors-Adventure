@@ -10,7 +10,6 @@ public class ShopKeeper : MonoBehaviour
 
     public Animator animator;
     public Component shopCanvasGroup;
-    public ShopManager shopManager;
 
     [SerializeField]
     private List<ShopItems> shopItems;
@@ -43,7 +42,7 @@ public class ShopKeeper : MonoBehaviour
                 Time.timeScale = 0;
                 isShopOpen = true;
                 currentShopKeeper = this; // Set the current shopkeeper
-                OnShopStateChanged?.Invoke(shopManager, true);
+                OnShopStateChanged?.Invoke(ShopManager.Instance, true);
                 shopCanvasGroup.gameObject.SetActive(true);
                 OpenItemShop(); // Default to item shop on open
             }
@@ -52,7 +51,7 @@ public class ShopKeeper : MonoBehaviour
                 Time.timeScale = 1;
                 isShopOpen = false;
                 currentShopKeeper = null; // Clear the current shopkeeper
-                OnShopStateChanged?.Invoke(shopManager, false);
+                OnShopStateChanged?.Invoke(ShopManager.Instance, false);
                 shopCanvasGroup.gameObject.SetActive(false);
             }
         }
@@ -60,17 +59,17 @@ public class ShopKeeper : MonoBehaviour
 
     public void OpenItemShop()
     {
-        shopManager.PopulateShopItems(shopItems);
+        ShopManager.Instance.PopulateShopItems(shopItems);
     }
 
     public void OpenWeaponShop()
     {
-        shopManager.PopulateShopItems(shopWeapons);
+        ShopManager.Instance.PopulateShopItems(shopWeapons);
     }
 
     public void OpenArmorShop()
     {
-        shopManager.PopulateShopItems(shopArmour);
+        ShopManager.Instance.PopulateShopItems(shopArmour);
     }
 
     void OnTriggerEnter2D(Collider2D collision)

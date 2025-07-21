@@ -110,6 +110,7 @@ MonoBehaviour:
   anim: {fileID: 4264368894664260231}
   canBePickedUp: 1
   quantity: 0
+  pickupSFX: {fileID: 8300000, guid: 496542f2c56fecc4d9aaf5d9944de22b, type: 3}
 --- !u!1 &7795046566574553741
 GameObject:
   m_ObjectHideFlags: 0
