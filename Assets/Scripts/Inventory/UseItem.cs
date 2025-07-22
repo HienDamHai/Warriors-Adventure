@@ -13,6 +13,10 @@ public class UseItem : MonoBehaviour
         {
             StatsManager.Instance.UpdateMaxHealth(itemSO.maxHealth);
         }
+        if (itemSO.damage > 0)
+        {
+            StatsManager.Instance.UpdateDamage(itemSO.damage);
+        }
 
         if (itemSO.speed > 0)
         {
