@@ -20,6 +20,8 @@ public class Torch_Movement : MonoBehaviour
     public Transform player;
     private Animator animator;
 
+    private bool isChasingAfterIdle = true;
+
     public TutorialMenuController tutorialMenuController;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -104,17 +106,26 @@ public class Torch_Movement : MonoBehaviour
         enemyState = newState;
 
         if (enemyState == EnemyState.Idle)
+        {
             animator.SetBool("isIdle", true);
+            isChasingAfterIdle = true;
+        }
         else if (enemyState == EnemyState.Chasing)
         {
             if (tutorialMenuController != null)
-            tutorialMenuController.SetText("EnemyChase", "The torch is trying to attack you, left click to attack.");
+                tutorialMenuController.SetText("EnemyChase", "The torch is trying to attack you, left click to attack.");
+
+            if (isChasingAfterIdle)
+            {
+                isChasingAfterIdle = false;
+                SFXManager.Instance.PlaySFX(chaseSFX, transform, 1f);
+            }
             animator.SetBool("isChasing", true);
-            SFXManager.Instance.PlaySFX(chaseSFX, transform, 1f);
-            
         }
         else if (enemyState == EnemyState.Attacking)
+        {
             animator.SetBool("isAttacking", true);
+        }
     }
 
     private void OnDrawGizmosSelected()
