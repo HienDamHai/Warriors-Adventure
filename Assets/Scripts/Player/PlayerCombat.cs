@@ -43,6 +43,7 @@ public class PlayerCombat : MonoBehaviour
     public void Attack()
     {
         if (timer > 0) return; // Nếu còn thời gian hồi chiêu, không thực hiện tấn công
+        if (animator.GetBool("IsAttacking")) return; // Nếu đang tấn công, không thực hiện tấn công mới
         SFXManager.Instance.PlaySFX(attackClip, transform, 1f);
         animator.SetBool("IsAttacking", true); // Kích hoạt hoạt ảnh tấn công
     }
