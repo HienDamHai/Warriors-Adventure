@@ -136,6 +136,7 @@ public class DialogManager : MonoBehaviour
             this.gameObject.SetActive(true);
             //dialogCanvas.SetActive(true);
         }
+        Time.timeScale = 0; // Pause the game
 
         if (currentDialog == null || dialogIndex >= currentDialog.lines.Length)
         {
@@ -157,6 +158,8 @@ public class DialogManager : MonoBehaviour
         dialogCanvas.SetActive(false);
         currentDialog = null;
         dialogIndex = 0;
+
+        Time.timeScale = 1; // Resume the game
 
         advanceAction.Disable(); 
         if (advanceActionHandler != null)
