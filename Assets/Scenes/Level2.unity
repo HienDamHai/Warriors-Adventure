@@ -11692,7 +11692,7 @@ Tilemap:
       - {fileID: 1743905061, guid: ce148776490bb0647915f56f96e30f27, type: 3}
       - {fileID: -1626135631, guid: ce148776490bb0647915f56f96e30f27, type: 3}
       - {fileID: -1948585646, guid: ce148776490bb0647915f56f96e30f27, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:
@@ -136691,7 +136691,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3510813303071546087, guid: ed72d6f8792d17b4ca92a8ec3951635e, type: 3}
       propertyPath: persistentOjects.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3510813303071546087, guid: ed72d6f8792d17b4ca92a8ec3951635e, type: 3}
       propertyPath: 'persistentOjects.Array.data[0]'

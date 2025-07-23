@@ -17,7 +17,6 @@ public class SceneChanger : MonoBehaviour
         {
             checkPoint.ResetCheckpoint();
         }
-        Debug.Log("Trigger entered by: " + collision.gameObject.tag);
         if (collision.CompareTag("Player"))
         {
             playerTransform = collision.transform; // Get the player's transform
@@ -32,6 +31,6 @@ public class SceneChanger : MonoBehaviour
         // Wait for the transition animation to finish before loading the scene
         yield return new WaitForSeconds(transitionDuration);
         playerTransform.position = teleportPosition; // Teleport the player to the specified position
-        SceneManager.LoadScene(sceneToLoad);
+        SceneManager.LoadSceneAsync(sceneToLoad);
     }
 }
