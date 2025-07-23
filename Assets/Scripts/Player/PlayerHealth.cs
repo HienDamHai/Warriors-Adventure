@@ -27,8 +27,6 @@ public class PlayerHealth : MonoBehaviour
         {
             this.healthBar.MaxBarValue = maxHealth;
         };
-        StatsManager.Instance.HealthUpdatedHandler += OnHealthUpdated;
-        StatsManager.Instance.MaxHealthUpdatedHandler += OnMaxHealthUpdated;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -36,6 +34,8 @@ public class PlayerHealth : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
+        StatsManager.Instance.HealthUpdatedHandler += OnHealthUpdated;
+        StatsManager.Instance.MaxHealthUpdatedHandler += OnMaxHealthUpdated;
         if (healthBar != null)
         {
             healthBar.BarValue = StatsManager.Instance.currentHealth;
