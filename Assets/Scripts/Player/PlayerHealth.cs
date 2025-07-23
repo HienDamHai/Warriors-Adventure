@@ -111,12 +111,33 @@ public class PlayerHealth : MonoBehaviour
         }
         else if (live == 1)
         {
-            live--; // Giảm số mạng khi máu bằng 0
-            gameObject.layer = LayerMask.NameToLayer("Dead"); // Đặt layer của người chơi thành Dead
-            playerMovement.DisableInput();
+            live--;
+            gameObject.layer = LayerMask.NameToLayer("Dead");
+            Time.timeScale = 0;
+
+            if (GameEndUIManager.Instance != null)
+            {
+                GameEndUIManager.Instance.GameOver();
+            }
+            else
+            {
+                Debug.LogWarning("GameEndUIManager.Instance is null!");
+            }
         }
-
-        
     }
+    public void ResetAll()
+    {
+        live = 3;
+        StatsManager.Instance.currentHealth = StatsManager.Instance.maxHealth;
+        health.BarValue = StatsManager.Instance.currentHealth;
+        invicibleTime = 0;
+        gameObject.layer = LayerMask.NameToLayer("Player");
+        animator.Play("Idle");
 
+        if (CheckpointManager.Instance != null)
+        {
+            Vector2 firstPos = CheckpointManager.Instance.FirstPosition;
+            playerMovement.SetMove(firstPos);
+        }
+    }
 }

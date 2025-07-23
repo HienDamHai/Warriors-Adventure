@@ -14,7 +14,7 @@ public class SkillSlot : MonoBehaviour
     public TMP_Text skillLevelText;
     public Image skillIcon;
     public Button skillButton;
-
+    public bool isDefaultUnlocked;
     public static event Action<SkillSlot> OnAbilityPointSpent;
     public static event Action<SkillSlot> OnSkillMaxed;
 
@@ -86,5 +86,11 @@ public class SkillSlot : MonoBehaviour
             skillIcon.color = Color.grey;
             skillButton.interactable = false;
         }
+    }
+    public void ResetSkill()
+    {
+        currentLevel = 0;
+        isUnlocked = isDefaultUnlocked;
+        SafeUpdateUI();
     }
 }

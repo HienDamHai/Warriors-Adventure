@@ -32,5 +32,9 @@ public class ScoreManager : MonoBehaviour
     {
         scoreText.text = "Score: " + currentScore;
     }
-
+    public void ResetScore()
+    {
+        currentScore = 0;
+        UpdateScoreText();
+    }
 }

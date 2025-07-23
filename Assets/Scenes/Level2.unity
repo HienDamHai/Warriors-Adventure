@@ -898,9 +898,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41ac82228c3be6f45861ee2dc7540b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expReward: 3
-  currentHealth: 5
-  maxHealth: 5
+  expReward: 5
+  currentHealth: 20
+  maxHealth: 20
   bossDeathDialog: {fileID: 0}
 --- !u!95 &34796577
 Animator:
@@ -997,7 +997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263c708b435b28848a9a68abfe2006f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 50
   attackPoint: {fileID: 1911006214}
   weaponRange: 1
   knockbackForce: 5
@@ -1191,8 +1191,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expReward: 3
-  currentHealth: 10
-  maxHealth: 10
+  currentHealth: 30
+  maxHealth: 30
   bossDeathDialog: {fileID: 0}
 --- !u!58 &50687688
 CircleCollider2D:
@@ -1266,7 +1266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d34b9aedb49117a4b9d475da178c96e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 70
   attackPoint: {fileID: 2003986381}
   weaponRange: 4
   knockbackForce: 5
@@ -1482,8 +1482,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expReward: 3
-  currentHealth: 30
-  maxHealth: 30
+  currentHealth: 50
+  maxHealth: 50
   bossDeathDialog: {fileID: 0}
 --- !u!114 &54787227
 MonoBehaviour:
@@ -1505,7 +1505,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  attackCooldownTimer: 2
+  attackCooldownTimer: 1
   rb: {fileID: 54787231}
   player: {fileID: 0}
   tutorialMenuController: {fileID: 0}
@@ -1521,7 +1521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d667b1c7c16dc604ca7db881eb066a0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 100
   attackPoint: {fileID: 941364846}
   weaponRange: 1
   knockbackForce: 5
@@ -4470,6 +4470,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1495121057013263866, guid: b3e494babe34455479faa92ecfdaebe1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1631693956446087394, guid: b3e494babe34455479faa92ecfdaebe1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4494,6 +4498,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2152119801122262003, guid: b3e494babe34455479faa92ecfdaebe1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2199014742850493865, guid: b3e494babe34455479faa92ecfdaebe1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2201194548703800483, guid: b3e494babe34455479faa92ecfdaebe1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4518,6 +4530,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2354371305382203951, guid: b3e494babe34455479faa92ecfdaebe1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2456616694835524215, guid: b3e494babe34455479faa92ecfdaebe1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4565,6 +4581,10 @@ PrefabInstance:
     - target: {fileID: 2512896447660621598, guid: b3e494babe34455479faa92ecfdaebe1, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565541572299859136, guid: b3e494babe34455479faa92ecfdaebe1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2606288083495242604, guid: b3e494babe34455479faa92ecfdaebe1, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4637,6 +4657,10 @@ PrefabInstance:
     - target: {fileID: 3235038277526820509, guid: b3e494babe34455479faa92ecfdaebe1, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3254573718945469034, guid: b3e494babe34455479faa92ecfdaebe1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3480728378755716215, guid: b3e494babe34455479faa92ecfdaebe1, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4770,6 +4794,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5056517589284537171, guid: b3e494babe34455479faa92ecfdaebe1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5104305931298403614, guid: b3e494babe34455479faa92ecfdaebe1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -5057,6 +5085,14 @@ PrefabInstance:
     - target: {fileID: 6544704342693850355, guid: b3e494babe34455479faa92ecfdaebe1, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6631161358737272096, guid: b3e494babe34455479faa92ecfdaebe1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6792097833875756966, guid: b3e494babe34455479faa92ecfdaebe1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7258788132773925956, guid: b3e494babe34455479faa92ecfdaebe1, type: 3}
       propertyPath: m_AnchorMax.y
@@ -5134,6 +5170,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7998422261450058492, guid: b3e494babe34455479faa92ecfdaebe1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8229021715388555604, guid: b3e494babe34455479faa92ecfdaebe1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -5277,6 +5317,10 @@ PrefabInstance:
     - target: {fileID: 8533465344739852666, guid: b3e494babe34455479faa92ecfdaebe1, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826070665023740332, guid: b3e494babe34455479faa92ecfdaebe1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8891672494821157275, guid: b3e494babe34455479faa92ecfdaebe1, type: 3}
       propertyPath: m_AnchorMax.y
@@ -5401,6 +5445,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 149d864443ddca94ba93b092e7acd5ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &334663330 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 999738189310075401, guid: b3e494babe34455479faa92ecfdaebe1, type: 3}
+  m_PrefabInstance: {fileID: 334663327}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b49d20d017392b4b95824d397aff0fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &340814981 stripped
@@ -5561,8 +5616,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expReward: 3
-  currentHealth: 30
-  maxHealth: 30
+  currentHealth: 50
+  maxHealth: 50
   bossDeathDialog: {fileID: 0}
 --- !u!114 &363527859
 MonoBehaviour:
@@ -5584,7 +5639,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  attackCooldownTimer: 2
+  attackCooldownTimer: 1
   rb: {fileID: 363527863}
   player: {fileID: 0}
   tutorialMenuController: {fileID: 0}
@@ -5600,7 +5655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d667b1c7c16dc604ca7db881eb066a0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 100
   attackPoint: {fileID: 883891523}
   weaponRange: 1
   knockbackForce: 5
@@ -5877,6 +5932,7 @@ GameObject:
   m_Component:
   - component: {fileID: 411618409}
   - component: {fileID: 411618408}
+  - component: {fileID: 411618410}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -5945,6 +6001,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &411618410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411618407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27bc8980923f8624aa3b068df0204a80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &455637925
 GameObject:
   m_ObjectHideFlags: 0
@@ -6001,7 +6069,7 @@ Transform:
   m_GameObject: {fileID: 457888919}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 40.125366, y: -24.686829, z: 0}
+  m_LocalPosition: {x: -77.80011, y: -19.87177, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11624,7 +11692,7 @@ Tilemap:
       - {fileID: 1743905061, guid: ce148776490bb0647915f56f96e30f27, type: 3}
       - {fileID: -1626135631, guid: ce148776490bb0647915f56f96e30f27, type: 3}
       - {fileID: -1948585646, guid: ce148776490bb0647915f56f96e30f27, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:
@@ -11956,8 +12024,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expReward: 3
-  currentHealth: 10
-  maxHealth: 10
+  currentHealth: 30
+  maxHealth: 30
   bossDeathDialog: {fileID: 0}
 --- !u!58 &570358519
 CircleCollider2D:
@@ -12031,7 +12099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d34b9aedb49117a4b9d475da178c96e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 70
   attackPoint: {fileID: 1532974541}
   weaponRange: 4
   knockbackForce: 5
@@ -122347,11 +122415,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 266257018675419684, guid: 49287d83b60c6d8468ea158e3cee3531, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 73.6
+      value: -45
       objectReference: {fileID: 0}
     - target: {fileID: 266257018675419684, guid: 49287d83b60c6d8468ea158e3cee3531, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -42.4
+      value: -38
       objectReference: {fileID: 0}
     - target: {fileID: 266257018675419684, guid: 49287d83b60c6d8468ea158e3cee3531, type: 3}
       propertyPath: m_LocalPosition.z
@@ -122492,8 +122560,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expReward: 3
-  currentHealth: 10
-  maxHealth: 10
+  currentHealth: 30
+  maxHealth: 30
   bossDeathDialog: {fileID: 0}
 --- !u!58 &762154846
 CircleCollider2D:
@@ -122567,7 +122635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d34b9aedb49117a4b9d475da178c96e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 70
   attackPoint: {fileID: 1609692084}
   weaponRange: 4
   knockbackForce: 5
@@ -135087,8 +135155,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expReward: 3
-  currentHealth: 10
-  maxHealth: 10
+  currentHealth: 30
+  maxHealth: 30
   bossDeathDialog: {fileID: 0}
 --- !u!58 &820839660
 CircleCollider2D:
@@ -135162,7 +135230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d34b9aedb49117a4b9d475da178c96e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 70
   attackPoint: {fileID: 289264183}
   weaponRange: 4
   knockbackForce: 5
@@ -135377,9 +135445,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41ac82228c3be6f45861ee2dc7540b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expReward: 3
-  currentHealth: 5
-  maxHealth: 5
+  expReward: 5
+  currentHealth: 20
+  maxHealth: 20
   bossDeathDialog: {fileID: 0}
 --- !u!95 &839635463
 Animator:
@@ -135476,7 +135544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263c708b435b28848a9a68abfe2006f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 50
   attackPoint: {fileID: 1845126542}
   weaponRange: 1
   knockbackForce: 5
@@ -136844,7 +136912,7 @@ Transform:
   m_GameObject: {fileID: 961921496}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1889.6254, y: 966.1049, z: 0}
+  m_LocalPosition: {x: 1771.7, y: 970.92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -137021,9 +137089,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41ac82228c3be6f45861ee2dc7540b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expReward: 3
-  currentHealth: 5
-  maxHealth: 5
+  expReward: 5
+  currentHealth: 20
+  maxHealth: 20
   bossDeathDialog: {fileID: 0}
 --- !u!95 &1033510192
 Animator:
@@ -137120,7 +137188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263c708b435b28848a9a68abfe2006f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 50
   attackPoint: {fileID: 2051094781}
   weaponRange: 1
   knockbackForce: 5
@@ -137313,9 +137381,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41ac82228c3be6f45861ee2dc7540b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expReward: 3
-  currentHealth: 5
-  maxHealth: 5
+  expReward: 5
+  currentHealth: 20
+  maxHealth: 20
   bossDeathDialog: {fileID: 0}
 --- !u!95 &1045665999
 Animator:
@@ -137412,7 +137480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263c708b435b28848a9a68abfe2006f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 50
   attackPoint: {fileID: 1231886634}
   weaponRange: 1
   knockbackForce: 5
@@ -138413,7 +138481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263c708b435b28848a9a68abfe2006f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 50
   attackPoint: {fileID: 1901686632}
   weaponRange: 1
   knockbackForce: 5
@@ -138455,9 +138523,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41ac82228c3be6f45861ee2dc7540b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expReward: 3
-  currentHealth: 5
-  maxHealth: 5
+  expReward: 5
+  currentHealth: 20
+  maxHealth: 20
   bossDeathDialog: {fileID: 0}
 --- !u!114 &1132005309
 MonoBehaviour:
@@ -139009,6 +139077,173 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 363527856}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1296917657
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1296917662}
+  - component: {fileID: 1296917661}
+  - component: {fileID: 1296917660}
+  - component: {fileID: 1296917659}
+  - component: {fileID: 1296917658}
+  m_Layer: 0
+  m_Name: Crown
+  m_TagString: Crown
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1296917658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296917657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d40a20baf88bd44698704fa62d972a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBossDead: 1
+  gameEndUIManager: {fileID: 334663330}
+--- !u!50 &1296917659
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296917657}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &1296917660
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296917657}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.02674235, y: -0.5482463}
+  m_Radius: 6.316649
+--- !u!212 &1296917661
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296917657}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 6405121654819792186, guid: 78b0c957f8d274a45bf5867738f0e17b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1296917662
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296917657}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.054565, y: -53.01495, z: 0}
+  m_LocalScale: {x: 0.09309455, y: 0.09309455, z: 0.09309455}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1313850394 stripped
 Transform:
@@ -139840,8 +140075,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expReward: 3
-  currentHealth: 10
-  maxHealth: 10
+  currentHealth: 30
+  maxHealth: 30
   bossDeathDialog: {fileID: 0}
 --- !u!58 &1451101523
 CircleCollider2D:
@@ -139915,7 +140150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d34b9aedb49117a4b9d475da178c96e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 70
   attackPoint: {fileID: 699254319}
   weaponRange: 4
   knockbackForce: 5
@@ -140426,7 +140661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d34b9aedb49117a4b9d475da178c96e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 70
   attackPoint: {fileID: 619779145}
   weaponRange: 4
   knockbackForce: 5
@@ -140511,8 +140746,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expReward: 3
-  currentHealth: 10
-  maxHealth: 10
+  currentHealth: 30
+  maxHealth: 30
   bossDeathDialog: {fileID: 0}
 --- !u!58 &1507718515
 CircleCollider2D:
@@ -140711,8 +140946,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expReward: 3
-  currentHealth: 30
-  maxHealth: 30
+  currentHealth: 50
+  maxHealth: 50
   bossDeathDialog: {fileID: 0}
 --- !u!114 &1531824786
 MonoBehaviour:
@@ -140734,7 +140969,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  attackCooldownTimer: 2
+  attackCooldownTimer: 1
   rb: {fileID: 1531824790}
   player: {fileID: 0}
   tutorialMenuController: {fileID: 0}
@@ -140750,7 +140985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d667b1c7c16dc604ca7db881eb066a0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 100
   attackPoint: {fileID: 1725523542}
   weaponRange: 1
   knockbackForce: 5
@@ -141032,9 +141267,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41ac82228c3be6f45861ee2dc7540b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expReward: 3
-  currentHealth: 5
-  maxHealth: 5
+  expReward: 5
+  currentHealth: 20
+  maxHealth: 20
   bossDeathDialog: {fileID: 0}
 --- !u!95 &1543647923
 Animator:
@@ -141131,7 +141366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263c708b435b28848a9a68abfe2006f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 50
   attackPoint: {fileID: 205399281}
   weaponRange: 1
   knockbackForce: 5
@@ -141682,7 +141917,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  attackCooldownTimer: 1
+  attackCooldownTimer: 0.5
   rb: {fileID: 1631890085}
   player: {fileID: 0}
   dialog: {fileID: 11400000, guid: b718c171b214ed24dbb03e91b1c2fca6, type: 2}
@@ -141710,7 +141945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be35fb033b9c5644baf59c144b0cb634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 25
+  damage: 120
   attackPoint: {fileID: 686851623}
   weaponRange: 3
   knockbackForce: 5
@@ -141832,8 +142067,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expReward: 20
-  currentHealth: 1
-  maxHealth: 1
+  currentHealth: 300
+  maxHealth: 300
   bossDeathDialog: {fileID: 11400000, guid: 6c9de8fb96e9e9447858c8497ad4afe1, type: 2}
 --- !u!1001 &1638209773
 PrefabInstance:
@@ -142034,8 +142269,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expReward: 3
-  currentHealth: 10
-  maxHealth: 10
+  currentHealth: 30
+  maxHealth: 30
   bossDeathDialog: {fileID: 0}
 --- !u!58 &1659074491
 CircleCollider2D:
@@ -142109,7 +142344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d34b9aedb49117a4b9d475da178c96e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 70
   attackPoint: {fileID: 105589942}
   weaponRange: 4
   knockbackForce: 5
@@ -142416,8 +142651,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expReward: 3
-  currentHealth: 30
-  maxHealth: 30
+  currentHealth: 50
+  maxHealth: 50
   bossDeathDialog: {fileID: 0}
 --- !u!114 &1688960482
 MonoBehaviour:
@@ -142439,7 +142674,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  attackCooldownTimer: 2
+  attackCooldownTimer: 1
   rb: {fileID: 1688960486}
   player: {fileID: 0}
   tutorialMenuController: {fileID: 0}
@@ -142455,7 +142690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d667b1c7c16dc604ca7db881eb066a0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 100
   attackPoint: {fileID: 673325206}
   weaponRange: 1
   knockbackForce: 5
@@ -142782,7 +143017,7 @@ Transform:
   m_GameObject: {fileID: 1718263017}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1889.6254, y: 966.1049, z: 0}
+  m_LocalPosition: {x: 1771.7, y: 970.92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -176575,8 +176810,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expReward: 3
-  currentHealth: 10
-  maxHealth: 10
+  currentHealth: 30
+  maxHealth: 30
   bossDeathDialog: {fileID: 0}
 --- !u!58 &1805906180
 CircleCollider2D:
@@ -176650,7 +176885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d34b9aedb49117a4b9d475da178c96e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 70
   attackPoint: {fileID: 1586452966}
   weaponRange: 4
   knockbackForce: 5
@@ -180381,8 +180616,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expReward: 3
-  currentHealth: 30
-  maxHealth: 30
+  currentHealth: 50
+  maxHealth: 50
   bossDeathDialog: {fileID: 0}
 --- !u!114 &1881183334
 MonoBehaviour:
@@ -180404,7 +180639,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  attackCooldownTimer: 2
+  attackCooldownTimer: 1
   rb: {fileID: 1881183338}
   player: {fileID: 0}
   tutorialMenuController: {fileID: 0}
@@ -180420,7 +180655,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d667b1c7c16dc604ca7db881eb066a0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 100
   attackPoint: {fileID: 171103588}
   weaponRange: 1
   knockbackForce: 5
@@ -181178,9 +181413,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41ac82228c3be6f45861ee2dc7540b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expReward: 3
-  currentHealth: 5
-  maxHealth: 5
+  expReward: 5
+  currentHealth: 20
+  maxHealth: 20
   bossDeathDialog: {fileID: 0}
 --- !u!95 &2030796090
 Animator:
@@ -181277,7 +181512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263c708b435b28848a9a68abfe2006f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 50
   attackPoint: {fileID: 74436848}
   weaponRange: 1
   knockbackForce: 5
@@ -181970,8 +182205,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expReward: 3
-  currentHealth: 10
-  maxHealth: 10
+  currentHealth: 30
+  maxHealth: 30
   bossDeathDialog: {fileID: 0}
 --- !u!58 &2061249021
 CircleCollider2D:
@@ -182045,7 +182280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d34b9aedb49117a4b9d475da178c96e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 70
   attackPoint: {fileID: 1168570655}
   weaponRange: 4
   knockbackForce: 5
@@ -182347,8 +182582,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expReward: 3
-  currentHealth: 30
-  maxHealth: 30
+  currentHealth: 50
+  maxHealth: 50
   bossDeathDialog: {fileID: 0}
 --- !u!114 &2066353272
 MonoBehaviour:
@@ -182370,7 +182605,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  attackCooldownTimer: 2
+  attackCooldownTimer: 1
   rb: {fileID: 2066353276}
   player: {fileID: 0}
   tutorialMenuController: {fileID: 0}
@@ -182386,7 +182621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d667b1c7c16dc604ca7db881eb066a0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 100
   attackPoint: {fileID: 933314826}
   weaponRange: 1
   knockbackForce: 5
@@ -182816,9 +183051,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41ac82228c3be6f45861ee2dc7540b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expReward: 3
-  currentHealth: 5
-  maxHealth: 5
+  expReward: 5
+  currentHealth: 20
+  maxHealth: 20
   bossDeathDialog: {fileID: 0}
 --- !u!95 &2110249625
 Animator:
@@ -182915,7 +183150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263c708b435b28848a9a68abfe2006f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 50
   attackPoint: {fileID: 1127156081}
   weaponRange: 1
   knockbackForce: 5
@@ -183108,9 +183343,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41ac82228c3be6f45861ee2dc7540b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  expReward: 3
-  currentHealth: 5
-  maxHealth: 5
+  expReward: 5
+  currentHealth: 20
+  maxHealth: 20
   bossDeathDialog: {fileID: 0}
 --- !u!95 &2124516182
 Animator:
@@ -183207,7 +183442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263c708b435b28848a9a68abfe2006f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 50
   attackPoint: {fileID: 1522901407}
   weaponRange: 1
   knockbackForce: 5
@@ -183463,13 +183698,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: Thief
       objectReference: {fileID: 0}
+    - target: {fileID: 4313009458636815026, guid: f2eed62b151cfd242bf0d7a71959b541, type: 3}
+      propertyPath: maxHealth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4313009458636815026, guid: f2eed62b151cfd242bf0d7a71959b541, type: 3}
+      propertyPath: currentHealth
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6853528738104616769, guid: f2eed62b151cfd242bf0d7a71959b541, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6853528738104616769, guid: f2eed62b151cfd242bf0d7a71959b541, type: 3}
+      propertyPath: attackCooldownTimer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6853528738104616769, guid: f2eed62b151cfd242bf0d7a71959b541, type: 3}
       propertyPath: tutorialMenuController
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7802043739100105554, guid: f2eed62b151cfd242bf0d7a71959b541, type: 3}
+      propertyPath: damage
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7968427961982254904, guid: f2eed62b151cfd242bf0d7a71959b541, type: 3}
       propertyPath: m_LocalPosition.x
@@ -183611,3 +183862,4 @@ SceneRoots:
   - {fileID: 1997683765}
   - {fileID: 411618409}
   - {fileID: 2037276421}
+  - {fileID: 1296917662}

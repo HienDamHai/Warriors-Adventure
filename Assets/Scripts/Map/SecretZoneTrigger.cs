@@ -14,15 +14,21 @@ public class SecretZoneTrigger : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if (inventoryManager != null && inventoryManager.HasItem("Key"))
+            if (inventoryManager != null)
             {
-                targetToHide.SetActive(false);
-                Debug.Log("Secret zone opened because you have the Key!");
+                if (inventoryManager.HasItem("Key"))
+                {
+                    targetToHide.SetActive(false);
+                    Debug.Log("Secret zone opened because you have the Key!");
+                }
+                else
+                {
+                    Debug.Log("You need a Key to open this secret zone.");
+                }
             }
-            else
-            {
-                Debug.Log("You need a Key to open this secret zone.");
-            }
+        } else
+        {
+            Debug.Log("inventory null");
         }
     }
 }

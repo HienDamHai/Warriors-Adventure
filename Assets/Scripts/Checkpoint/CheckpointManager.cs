@@ -5,6 +5,7 @@ public class CheckpointManager : MonoBehaviour
     public static CheckpointManager Instance;
 
     public Vector2 LastPosition { get; set; }
+    public Vector2 FirstPosition { get; private set; }
 
     void Awake()
     {
@@ -20,6 +21,11 @@ public class CheckpointManager : MonoBehaviour
 
     void Start()
     {
-        LastPosition = new Vector2(32.08f, -31.9f); // Initialize the last position to zero
+        FirstPosition = new Vector2(-45, -38f);
+        LastPosition = FirstPosition;
+    }
+    public void ResetCheckpoint()
+    {
+        LastPosition = FirstPosition;
     }
 }
