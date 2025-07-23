@@ -11,6 +11,8 @@ public class ExpManager : MonoBehaviour
     public Slider expSlider;
     public TMP_Text currentLevelText;
     public static ExpManager Instance;
+    private int baseLevel;
+    private int baseExpToLevel;
 
     private void Awake()
     {
@@ -20,8 +22,10 @@ public class ExpManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    private void Start()
+    void Start()
     {
+        baseLevel = level;
+        baseExpToLevel = expToLevel;
         UpdateUI();
     }
 
@@ -78,5 +82,13 @@ public class ExpManager : MonoBehaviour
         expSlider.maxValue = expToLevel;
         expSlider.value = currentExp;
         currentLevelText.text = "Level: " + level;
+    }
+
+    public void ResetExp()
+    {
+        level = baseLevel;
+        currentExp = 0;
+        expToLevel = baseExpToLevel;
+        UpdateUI();
     }
 }

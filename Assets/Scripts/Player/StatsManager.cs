@@ -24,6 +24,27 @@ public class StatsManager : MonoBehaviour
 
     public event Action<int> HealthUpdatedHandler;
     public event Action<int> MaxHealthUpdatedHandler;
+    private int baseDamage;
+    private float baseWeaponRange;
+    private float baseKnockbackForce;
+    private float baseKnockbackTime;
+    private float baseStunTime;
+    private float baseAttackSpeed;
+    private float baseSpeed;
+    private int baseMaxHealth;
+    void Start()
+    {
+        baseDamage = damage;
+        baseWeaponRange = weaponRange;
+        baseKnockbackForce = knockbackForce;
+        baseKnockbackTime = knockbackTime;
+        baseStunTime = stunTime;
+        baseAttackSpeed = attackSpeed;
+        baseSpeed = speed;
+        baseMaxHealth = maxHealth;
+
+        currentHealth = maxHealth;
+    }
 
     private void Awake()
     {
@@ -71,4 +92,20 @@ public class StatsManager : MonoBehaviour
     {
         speed += amount;
     }
+    public void ResetStats()
+    {
+        damage = baseDamage;
+        weaponRange = baseWeaponRange;
+        knockbackForce = baseKnockbackForce;
+        knockbackTime = baseKnockbackTime;
+        stunTime = baseStunTime;
+        attackSpeed = baseAttackSpeed;
+        speed = baseSpeed;
+        maxHealth = baseMaxHealth;
+        currentHealth = maxHealth;
+
+        MaxHealthUpdatedHandler?.Invoke(maxHealth);
+        HealthUpdatedHandler?.Invoke(currentHealth);
+    }
+
 }

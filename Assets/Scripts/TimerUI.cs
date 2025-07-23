@@ -55,4 +55,10 @@ public class TimerUI : MonoBehaviour
     {
         isPaused = false;
     }
+    public void ResetTimer()
+    {
+        isPaused = false;
+        currentTime = countdown ? timeRemaining : 0f;
+        timerText.text = FormatTime(currentTime);
+    }
 }

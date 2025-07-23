@@ -7,13 +7,19 @@ public class SkillTreeManager : MonoBehaviour
 
     public SkillSlot[] skillSlots;
     public TMP_Text pointsText;
-    public int availablePoints = 0;
+    public int availablePoints = 5;
+    private int baseAvailablePoints;
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject); // Optional: Nếu muốn giữ khi chuyển scene
+        }
+        else
+        {
+            Destroy(gameObject); // Tránh trùng lặp khi load scene mới
         }
     }
 
@@ -31,6 +37,7 @@ public class SkillTreeManager : MonoBehaviour
 
     private void Start()
     {
+        baseAvailablePoints = availablePoints;
         foreach (SkillSlot slot in skillSlots)
         {
             if (slot == null)
@@ -90,5 +97,16 @@ public class SkillTreeManager : MonoBehaviour
     private void UpdatePointsText()
     {
         pointsText.text = "Points: " + availablePoints;
+    }
+    public void ResetSkillTree()
+    {
+        availablePoints = baseAvailablePoints;
+
+        foreach (SkillSlot slot in skillSlots)
+        {
+            slot.ResetSkill();
+        }
+
+        UpdatePointsText();
     }
 }

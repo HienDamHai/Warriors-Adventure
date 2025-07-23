@@ -12,6 +12,11 @@ public class SceneChanger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        var checkPoint = CheckpointManager.Instance;
+        if (checkPoint != null)
+        {
+            checkPoint.ResetCheckpoint();
+        }
         Debug.Log("Trigger entered by: " + collision.gameObject.tag);
         if (collision.CompareTag("Player"))
         {

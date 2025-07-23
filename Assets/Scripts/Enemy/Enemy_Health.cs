@@ -10,9 +10,9 @@ public class Enemy_Health : MonoBehaviour
     public int maxHealth;
 
     public NPCDialog bossDeathDialog;
-
-    private BossProgressBar bossProgressBar;
     private TimerUI timerUI;
+    private BossProgressBar bossProgressBar;
+    private GameObject crown;
 
     private void Start()
     {
@@ -21,6 +21,12 @@ public class Enemy_Health : MonoBehaviour
         timerUI = FindFirstObjectByType<TimerUI>();
         if (gameObject.CompareTag("Boss"))
         {
+            crown = GameObject.FindGameObjectWithTag("Crown");
+            if (crown != null)
+            {
+                crown.SetActive(false);
+                Debug.Log("Crown is initially set inactive.");
+            }
             bossProgressBar = FindFirstObjectByType<BossProgressBar>();
             bossProgressBar.MaxHealth = maxHealth;
             bossProgressBar.BarValue = currentHealth;
@@ -46,7 +52,15 @@ public class Enemy_Health : MonoBehaviour
             {
                 timerUI?.PauseTimer();
                 DialogManager.Instance.StartDialog(bossDeathDialog);
-                // bossProgressBar.SetActive(false);
+                if (crown != null)
+                {
+                    crown.SetActive(true);
+                }
+                else
+                {
+                    Debug.LogWarning("Crown not found!");
+                }
+                bossProgressBar.SetActive(false);
             }
             Destroy(gameObject);
         }

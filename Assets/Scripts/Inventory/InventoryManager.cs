@@ -127,4 +127,18 @@ public class InvetoryManager : MonoBehaviour
         }
         return false;
     }
+    public void ResetInventory()
+    {
+        // Reset gold
+        gold = 0;
+        goldText.text = gold.ToString();
+
+        // Clear all item slots
+        foreach (var slot in itemSlots)
+        {
+            slot.itemSO = null;
+            slot.quantity = 0;
+            slot.UpdateUI();
+        }
+    }
 }
