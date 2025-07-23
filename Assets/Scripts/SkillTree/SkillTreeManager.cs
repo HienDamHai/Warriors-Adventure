@@ -15,14 +15,8 @@ public class SkillTreeManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Optional: Nếu muốn giữ khi chuyển scene
-        }
-        else
-        {
-            Destroy(gameObject); // Tránh trùng lặp khi load scene mới
         }
     }
-
     private void OnEnable()
     {
         SkillSlot.OnAbilityPointSpent += HandleAbilityPointsSpent;
