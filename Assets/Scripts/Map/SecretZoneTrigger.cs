@@ -3,7 +3,7 @@ using UnityEngine;
 public class SecretZoneTrigger : MonoBehaviour
 {
     public GameObject targetToHide;
-    private InvetoryManager inventoryManager;
+    public InvetoryManager inventoryManager;
 
     private void Start()
     {

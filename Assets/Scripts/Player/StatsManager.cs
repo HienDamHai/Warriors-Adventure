@@ -60,7 +60,7 @@ public class StatsManager : MonoBehaviour
         currentHealth += amount;
         MaxHealthUpdatedHandler?.Invoke(maxHealth);
         HealthUpdatedHandler?.Invoke(currentHealth);
-        // healthText.text = "HP " + currentHealth + "/" + maxHealth;
+
     }
 
     public void UpdateHealth(int amount)
@@ -71,7 +71,8 @@ public class StatsManager : MonoBehaviour
             currentHealth = maxHealth;
             HealthUpdatedHandler?.Invoke(currentHealth);
         }
-        // healthText.text = "HP " + currentHealth + "/" + maxHealth;
+        MaxHealthUpdatedHandler?.Invoke(maxHealth);
+        HealthUpdatedHandler?.Invoke(currentHealth);
     }
 
     // public void UpdateSpeed(int amount)

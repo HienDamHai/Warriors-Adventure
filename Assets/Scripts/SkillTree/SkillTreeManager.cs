@@ -8,7 +8,7 @@ public class SkillTreeManager : MonoBehaviour
     public SkillSlot[] skillSlots;
     public TMP_Text pointsText;
     public int availablePoints = 5;
-    private int baseAvailablePoints;
+    private const int baseAvailablePoints = 5;
 
     private void Awake()
     {
@@ -31,7 +31,6 @@ public class SkillTreeManager : MonoBehaviour
 
     private void Start()
     {
-        baseAvailablePoints = availablePoints;
         foreach (SkillSlot slot in skillSlots)
         {
             if (slot == null)

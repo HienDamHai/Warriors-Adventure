@@ -105,4 +105,53 @@ public class GameEndUIManager : MonoBehaviour
 
         SceneManager.LoadSceneAsync("Level1", LoadSceneMode.Single);
     }
+    public void ResetAll()
+    {
+        isGameOver = false;
+        isGameWin = false;
+        Time.timeScale = 1;
+        gameOverUI.SetActive(false);
+        gameWinUI.SetActive(false);
+
+        // Reset Player
+        var player = FindFirstObjectByType<PlayerHealth>();
+        if (player != null)
+        {
+            player.ResetAll();
+        }
+
+        // Reset EXP
+        if (ExpManager.Instance != null)
+            ExpManager.Instance.ResetExp();
+
+        // Reset Stats
+        if (StatsManager.Instance != null)
+            StatsManager.Instance.ResetStats();
+
+        // Reset SkillTree
+        if (SkillTreeManager.Instance != null)
+            SkillTreeManager.Instance.ResetSkillTree();
+
+        // Reset Score
+        if (ScoreManager.Instance != null)
+            ScoreManager.Instance.ResetScore();
+
+        // Reset Timer
+        var timer = FindFirstObjectByType<TimerUI>();
+        if (timer != null)
+            timer.ResetTimer();
+
+        var inventory = FindFirstObjectByType<InvetoryManager>();
+        if (inventory != null)
+        {
+            inventory.ResetInventory();
+        }
+        Debug.Log("Game fully reset.");
+
+        var checkPoint = CheckpointManager.Instance;
+        if (checkPoint != null)
+        {
+            checkPoint.ResetCheckpoint();
+        }
+    }
 }
