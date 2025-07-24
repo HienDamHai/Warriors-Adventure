@@ -38,8 +38,8 @@ public class PlayerHealth : MonoBehaviour
         StatsManager.Instance.MaxHealthUpdatedHandler += OnMaxHealthUpdated;
         if (healthBar != null)
         {
-            healthBar.BarValue = StatsManager.Instance.currentHealth;
             healthBar.MaxBarValue = StatsManager.Instance.maxHealth;
+            healthBar.BarValue = StatsManager.Instance.currentHealth;
         }
         else
         {
@@ -75,6 +75,7 @@ public class PlayerHealth : MonoBehaviour
         }
         else if (amount > 0)
         {
+            Debug.Log("Player healed! Amount: " + amount);
             StatsManager.Instance.currentHealth += amount; // Tăng máu hiện tại
             StatsManager.Instance.currentHealth = Mathf.Clamp(StatsManager.Instance.currentHealth, 0, StatsManager.Instance.maxHealth); // Đảm bảo máu không vượt quá giới hạn
             healthBar.BarValue = StatsManager.Instance.currentHealth;

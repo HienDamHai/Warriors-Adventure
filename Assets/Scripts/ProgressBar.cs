@@ -17,7 +17,7 @@ public class ProgressBar : MonoBehaviour
 
         set
         {
-            value = Mathf.Clamp(value, 0, value);
+            value = Mathf.Clamp(value, 0, maxValue);
             barValue = value;
             UpdateValue();
         }
