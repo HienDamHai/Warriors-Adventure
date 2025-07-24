@@ -6,6 +6,8 @@ public class PlayerHealth : MonoBehaviour
 {
     public ProgressBar healthBar;
 
+    private LiveUI liveUI;
+
     public Animator animator;
 
     private PlayerMovement playerMovement;
@@ -34,6 +36,7 @@ public class PlayerHealth : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
+        liveUI = FindFirstObjectByType<LiveUI>(); // Tìm đối tượng LiveUI trong scene
         StatsManager.Instance.HealthUpdatedHandler += OnHealthUpdated;
         StatsManager.Instance.MaxHealthUpdatedHandler += OnMaxHealthUpdated;
         if (healthBar != null)
@@ -45,6 +48,7 @@ public class PlayerHealth : MonoBehaviour
         {
             Debug.LogWarning("TextMeshPro textHealth is not assigned in the inspector.");
         }
+        liveUI.UpdateLive(live); // Cập nhật giao diện hiển thị số mạng
     }
 
     // Update is called once per frame
@@ -103,6 +107,7 @@ public class PlayerHealth : MonoBehaviour
         {
             gameObject.layer = LayerMask.NameToLayer("Player"); // Đặt layer của người chơi thành Player
             live--; // Giảm số mạng khi máu bằng 0
+            liveUI.UpdateLive(live); // Cập nhật giao diện hiển thị số mạng
             StatsManager.Instance.currentHealth = StatsManager.Instance.maxHealth; // Đặt lại máu hiện tại về máu tối đa
             healthBar.BarValue = StatsManager.Instance.currentHealth; // Cập nhật thanh máu
             invicibleTime = 0; // Đặt lại thời gian bất tử
@@ -113,6 +118,7 @@ public class PlayerHealth : MonoBehaviour
         else if (live == 1)
         {
             live--;
+            liveUI.UpdateLive(live); // Cập nhật giao diện hiển thị số mạng
             gameObject.layer = LayerMask.NameToLayer("Dead");
             Time.timeScale = 0;
 
