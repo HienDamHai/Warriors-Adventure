@@ -35,6 +35,7 @@ public class UseItem : MonoBehaviour
     }
     private IEnumerator EffectTimer(ItemSO itemSO, float duration)
     {
+        Debug.Log("Effect will last for: " + duration + " seconds");
         yield return new WaitForSeconds(duration);
 
         if (itemSO.currentHealth > 0)
@@ -48,6 +49,10 @@ public class UseItem : MonoBehaviour
         if (itemSO.speed > 0)
         {
             StatsManager.Instance.UpdateRunSpeed(-itemSO.speed);
+        }
+        if (itemSO.damage > 0)
+        {
+            StatsManager.Instance.UpdateDamage(-itemSO.damage);
         }
     }
 }
