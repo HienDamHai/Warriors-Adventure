@@ -10,7 +10,7 @@ public class ProgressBar : MonoBehaviour
 {
     public Image bar, barBackground;
     private float barValue;
-    private float maxValue = 100;
+    private float maxValue;
     public float BarValue
     {
         get { return barValue; }

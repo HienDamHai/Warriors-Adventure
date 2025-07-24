@@ -6,6 +6,7 @@ public class StatsManager : MonoBehaviour
 {
     public static StatsManager Instance;
     // public TMP_Text healthText;
+    private ProgressBar healthBar;
 
     [Header("Combat Stats")]
     public int damage;
@@ -42,8 +43,9 @@ public class StatsManager : MonoBehaviour
         baseAttackSpeed = attackSpeed;
         baseSpeed = speed;
         baseMaxHealth = maxHealth;
-
         currentHealth = maxHealth;
+
+        healthBar = FindFirstObjectByType<ProgressBar>();
     }
 
     private void Awake()
@@ -58,6 +60,7 @@ public class StatsManager : MonoBehaviour
     {
         maxHealth += amount;
         currentHealth += amount;
+        UpdateHealthBar();
         MaxHealthUpdatedHandler?.Invoke(maxHealth);
         HealthUpdatedHandler?.Invoke(currentHealth);
 
@@ -66,6 +69,10 @@ public class StatsManager : MonoBehaviour
     public void UpdateHealth(int amount)
     {
         currentHealth += amount;
+        if (healthBar != null)
+        {
+            healthBar.BarValue = currentHealth;
+        }
         if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
@@ -107,6 +114,21 @@ public class StatsManager : MonoBehaviour
 
         MaxHealthUpdatedHandler?.Invoke(maxHealth);
         HealthUpdatedHandler?.Invoke(currentHealth);
+
+        UpdateHealthBar();
+    }
+
+    public void UpdateHealthBar()
+    {
+        if (healthBar != null)
+        {
+            healthBar.MaxBarValue = maxHealth;
+            healthBar.BarValue = currentHealth;
+        }
+        else
+        {
+            Debug.LogWarning("Health bar is not assigned in the inspector.");
+        }
     }
 
 }
