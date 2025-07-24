@@ -16,7 +16,15 @@ public class PlayerMovement : MonoBehaviour
     private PlayerCombat playerCombat; // Biến để lưu PlayerCombat
 
     private bool isKnockback;
+    public static PlayerMovement Instance { get; private set; }
 
+    void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -101,5 +109,9 @@ public class PlayerMovement : MonoBehaviour
         moveAction.Disable(); // Vô hiệu hóa InputAction di chuyển
         attackAction.Disable(); // Vô hiệu hóa InputAction tấn công
     }
-
+    public void EnableInput()
+    {
+        moveAction.Enable();   // Kích hoạt lại InputAction di chuyển
+        attackAction.Enable(); // Kích hoạt lại InputAction tấn công
+    }
 }
