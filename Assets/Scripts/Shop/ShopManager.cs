@@ -13,7 +13,7 @@ public class ShopManager : MonoBehaviour
     private ShopSlot[] shopSlots;
 
     [SerializeField]
-    private InvetoryManager inventoryManager;
+    private InventoryManager inventoryManager;
 
     private void Awake()
     {
@@ -21,7 +21,15 @@ public class ShopManager : MonoBehaviour
         {
             Instance = this;
         }
+        if (shopCanvas == null)
+        {
+            shopCanvas = gameObject.GetComponent<RectTransform>();
+        }
         shopCanvas.gameObject.SetActive(false);
+        if (inventoryManager == null)
+        {
+            inventoryManager = FindFirstObjectByType<InventoryManager>();
+        }
     }
 
     public void PopulateShopItems(List<ShopItems> shopItems)

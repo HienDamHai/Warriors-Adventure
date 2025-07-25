@@ -11,13 +11,13 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
     public Image itemImage;
     public TMP_Text quantityText;
 
-    private InvetoryManager inventoryManager;
+    private InventoryManager inventoryManager;
     private static ShopManager activeShop;
 
 
     private void Start()
     {
-        inventoryManager = GetComponentInParent<InvetoryManager>();
+        inventoryManager = GetComponentInParent<InventoryManager>();
     }
 
     private void OnEnable()

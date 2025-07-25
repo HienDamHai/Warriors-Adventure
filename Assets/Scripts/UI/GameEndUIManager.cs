@@ -40,7 +40,7 @@ public class GameEndUIManager : MonoBehaviour
     private void ShowSummary()
     {
         int score = ScoreManager.Instance.currentScore;
-        int gold = FindFirstObjectByType<InvetoryManager>().gold;
+        int gold = FindFirstObjectByType<InventoryManager>().gold;
 
         int finalScore = score + (gold * 5);
 
@@ -90,7 +90,7 @@ public class GameEndUIManager : MonoBehaviour
         if (timer != null)
             timer.ResetTimer();
 
-        var inventory = FindFirstObjectByType<InvetoryManager>();
+        var inventory = FindFirstObjectByType<InventoryManager>();
         if (inventory != null)
         {
             inventory.ResetInventory();
@@ -141,7 +141,7 @@ public class GameEndUIManager : MonoBehaviour
         if (timer != null)
             timer.ResetTimer();
 
-        var inventory = FindFirstObjectByType<InvetoryManager>();
+        var inventory = FindFirstObjectByType<InventoryManager>();
         if (inventory != null)
         {
             inventory.ResetInventory();
