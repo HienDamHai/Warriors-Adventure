@@ -3,11 +3,11 @@ using UnityEngine;
 public class SecretZoneTrigger : MonoBehaviour
 {
     public GameObject targetToHide;
-    public InvetoryManager inventoryManager;
+    public InventoryManager inventoryManager;
 
     private void Start()
     {
-        inventoryManager = FindFirstObjectByType<InvetoryManager>();
+        inventoryManager = FindFirstObjectByType<InventoryManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

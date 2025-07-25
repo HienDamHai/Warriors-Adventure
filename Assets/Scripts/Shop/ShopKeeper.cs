@@ -9,7 +9,7 @@ public class ShopKeeper : MonoBehaviour
     public static ShopKeeper currentShopKeeper;
 
     public Animator animator;
-    public Component shopCanvasGroup;
+    private Component shopCanvasGroup;
 
     [SerializeField]
     private List<ShopItems> shopItems;
@@ -43,17 +43,27 @@ public class ShopKeeper : MonoBehaviour
                 isShopOpen = true;
                 currentShopKeeper = this; // Set the current shopkeeper
                 OnShopStateChanged?.Invoke(ShopManager.Instance, true);
+                ShopCanvasActiveIfNull();
                 shopCanvasGroup.gameObject.SetActive(true);
                 OpenItemShop(); // Default to item shop on open
             }
-             else
+            else
             {
                 Time.timeScale = 1;
                 isShopOpen = false;
                 currentShopKeeper = null; // Clear the current shopkeeper
                 OnShopStateChanged?.Invoke(ShopManager.Instance, false);
+                ShopCanvasActiveIfNull();
                 shopCanvasGroup.gameObject.SetActive(false);
             }
+        }
+    }
+
+    public void ShopCanvasActiveIfNull()
+    {
+        if (shopCanvasGroup == null)
+        {
+            shopCanvasGroup = ShopManager.Instance.shopCanvas;
         }
     }
 

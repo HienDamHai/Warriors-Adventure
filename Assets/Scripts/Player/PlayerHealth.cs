@@ -22,7 +22,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void Awake()
     {
-        OnHealthUpdated = (health) => { 
+        OnHealthUpdated = (health) =>
+        {
             this.healthBar.BarValue = health;
         };
         OnMaxHealthUpdated = (maxHealth) =>
@@ -140,6 +141,8 @@ public class PlayerHealth : MonoBehaviour
         invicibleTime = 0;
         gameObject.layer = LayerMask.NameToLayer("Player");
         animator.Play("Idle");
+        liveUI.UpdateLive(live); // Cập nhật giao diện hiển thị số mạng
+
 
         if (CheckpointManager.Instance != null)
         {
